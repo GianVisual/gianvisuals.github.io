@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gian Visuals | Producción de Video Vertical AI-Style</title>
+    
+    <title>Gian Visuals | Editor de Video Vertical para Reels, TikTok y Shorts</title>
+    <meta name="description" content="Edición de video vertical high-ticket. Especialista en retención y narrativa visual para marcas premium en Reels y TikTok. Calidad de cine para tu contenido.">
+    <meta name="keywords" content="editor de video vertical, edición de reels, post-producción tiktok, video high-ticket, gian visuals, visual storyteller">
+    <link rel="canonical" href="https://gianvisuals.com/">
+
+    <meta property="og:title" content="Gian Visuals | Producción de Video Vertical Premium">
+    <meta property="og:description" content="Transformo tu material en piezas de alto impacto diseñadas para detener el scroll.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gianvisuals.com/">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 
     <style>
-        /* --- SISTEMA DE DISEÑO --- */
+        /* MANTENIDO: TU SISTEMA DE DISEÑO ORIGINAL */
         :root {
             --bg-body: #050507;
             --bg-surface: #0E1016;
@@ -34,8 +44,6 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-     
-
 
         .ambient-light {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh; pointer-events: none; z-index: -1;
@@ -44,73 +52,38 @@
         }
 
         .parallax-bg {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: var(--primary-glow);
-            filter: blur(120px);
-            border-radius: 50%;
-            z-index: -1;
-            opacity: 0.3;
-            pointer-events: none;
+            position: absolute; width: 400px; height: 400px; background: var(--primary-glow);
+            filter: blur(120px); border-radius: 50%; z-index: -1; opacity: 0.3; pointer-events: none;
         }
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .text-gradient {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
+        .text-gradient { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .badge { display: inline-block; padding: 4px 12px; background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
 
-        /* --- ANIMACIONES --- */
-        .reveal { 
-            opacity: 0; 
-            filter: blur(10px);
-            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); 
-            will-change: transform, opacity;
-        }
+        .reveal { opacity: 0; filter: blur(10px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform, opacity; }
         .reveal-up { transform: translateY(60px); }
         .reveal-left { transform: translateX(-80px); }
         .reveal-right { transform: translateX(80px); }
         .reveal-scale { transform: scale(0.8); }
         .reveal.active { opacity: 1; filter: blur(0); transform: translate(0,0) scale(1); }
-
         .delay-1 { transition-delay: 0.1s; }
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
-        .delay-4 { transition-delay: 0.4s; }
 
-        /* BOTONES */
         .btn { display: inline-block; padding: 12px 32px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); cursor: pointer; border: 1px solid transparent; text-align: center; }
         .btn-primary { background: var(--primary-gradient); color: #fff; box-shadow: 0 4px 20px var(--primary-glow); position: relative; z-index: 1; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--primary-glow); filter: brightness(1.1); }
         .btn-secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-light); }
         .btn-secondary:hover { background: rgba(255,255,255,0.1); }
 
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
-
+        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
         .section-header p { color: var(--text-muted); font-size: 1.1rem; }
 
-        /* --- NAVBAR --- */
-        nav {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(5, 5, 7, 0.7);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            z-index: 1000; border-bottom: 1px solid var(--border-light); padding: 16px 0;
-        }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 7, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); z-index: 1000; border-bottom: 1px solid var(--border-light); padding: 16px 0; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; z-index: 1001; }
         .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -118,10 +91,6 @@
         .nav-links a:hover { color: #fff; }
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
 
-        /* --- HERO --- */
-        
-        
-    
         .hero { padding-top: 180px; padding-bottom: 80px; min-height: 100vh; display: flex; align-items: center; position: relative; }
         .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; z-index: 2; }
         .hero-text h1 { font-size: 4.5rem; line-height: 1.1; font-weight: 900; margin-bottom: 24px; letter-spacing: -2px; }
@@ -131,27 +100,17 @@
         .phone-mockup { width: 280px; height: 580px; border: 8px solid #1e293b; border-radius: 40px; background: #000; position: relative; transform: rotate(-3deg); transition: 0.5s; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
         .phone-mockup:hover { transform: rotate(0deg) scale(1.02); }
 
-        /* --- SECCIÓN SOBRE MÍ --- */
-        .about-card-container {
-            background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15) 0%, rgba(5, 5, 7, 0) 70%), var(--bg-surface);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 30px; padding: 60px; position: relative; overflow: hidden;
-            box-shadow: 0 0 80px -20px rgba(124, 58, 237, 0.2);
-        }
+        .about-card-container { background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15) 0%, rgba(5, 5, 7, 0) 70%), var(--bg-surface); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 30px; padding: 60px; position: relative; overflow: hidden; box-shadow: 0 0 80px -20px rgba(124, 58, 237, 0.2); }
         .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
         .stats-row { display: flex; gap: 50px; margin-top: 40px; border-top: 1px solid var(--border-light); padding-top: 30px; }
         .stat-item h3 { font-size: 2.5rem; font-weight: 800; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .id-card-wrapper { perspective: 1000px; display: flex; justify-content: center; }
-        .id-card {
-            width: 260px; height: 380px; background: linear-gradient(145deg, #1a1c29, #0f1016);
-            border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 20px; text-align: center;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5); animation: floatCard 6s ease-in-out infinite; transform-style: preserve-3d;
-        }
-        .id-photo { width: 120px; height: 120px; border-radius: 50%; margin: 30px auto 20px; border: 3px solid #6366F1; object-fit: cover; }
+        .id-card { width: 260px; height: 380px; background: linear-gradient(145deg, #1a1c29, #0f1016); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 20px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); animation: floatCard 6s ease-in-out infinite; transform-style: preserve-3d; }
+        .id-photo { width: 170px; height: 170px; border-radius: 50%; margin: 20px auto 20px; border: 4px solid #6366F1; object-fit: cover; object-position: top center; box-shadow: 0 20px 50px rgba(99,102,241,0.35); }
+
         @keyframes floatCard { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
 
-        /* --- PORTFOLIO --- */
         .filter-container { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap; }
         .filter-btn { padding: 10px 24px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); color: var(--text-muted); border-radius: 30px; cursor: pointer; font-weight: 600; transition: var(--transition); }
         .filter-btn.active, .filter-btn:hover { background: var(--primary-gradient); color: white; border-color: transparent; }
@@ -165,19 +124,13 @@
         .portfolio-item:hover img, .portfolio-item:hover video { transform: scale(1.08); }
         .item-type { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- LIGHTBOX --- */
         #lightbox { position: fixed; inset: 0; background: rgba(5, 5, 7, 0.98); backdrop-filter: blur(20px); z-index: 2000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.4s ease; }
         #lightbox.active { opacity: 1; }
         .lightbox-content { position: relative; max-width: 90%; max-height: 85vh; display: flex; align-items: center; justify-content: center; z-index: 2010; }
         .lightbox-content img, .lightbox-content video { max-width: 100%; max-height: 85vh; border-radius: 12px; box-shadow: 0 0 60px rgba(0,0,0,0.8); border: 1px solid var(--border-light); }
         .close-lightbox { position: fixed; top: 30px; right: 30px; font-size: 1.5rem; color: white; cursor: pointer; width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: var(--transition); z-index: 2020; border: 1px solid var(--border-light); }
-        .close-lightbox:hover { background: #ef4444; transform: rotate(90deg); }
         .nav-arrow { position: fixed; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; transition: var(--transition); z-index: 2020; }
-        .nav-arrow:hover { background: var(--primary-gradient); border-color: transparent; scale: 1.1; }
-        .arrow-prev { left: 30px; }
-        .arrow-next { right: 30px; }
-
-        /* --- PLANES --- */
+        
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
         .glass-card { background: var(--bg-card); border: 1px solid var(--border-light); padding: 40px; border-radius: var(--radius-lg); transition: var(--transition); }
         .glass-card:hover { border-color: rgba(168, 85, 247, 0.5); transform: translateY(-5px); }
@@ -185,99 +138,27 @@
         .price-period { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
         .section-padding { padding: 100px 0; }
 
-       
-        /* --- RESPONSIVE MODIFICADO PARA MÁRGENES PROFESIONALES --- */
         @media (max-width: 768px) {
-            /* Incrementamos el margen lateral para que el contenido no pegue al borde del móvil */
             .container { padding: 0 32px; }
-
             .hero-grid, .about-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-btns { justify-content: center; }
             .hero-text h1 { font-size: 2.8rem; }
-            
             .menu-toggle { display: block; }
             .nav-links { position: fixed; top: 0; right: -100%; height: 100vh; width: 100%; background: rgba(5, 5, 7, 0.98); flex-direction: column; justify-content: center; transition: 0.4s; }
             .nav-links.active { right: 0; }
-            
-            /* Ajuste de Portafolio en móvil */
-            .portfolio-grid { 
-                grid-template-columns: 1fr; 
-                gap: 40px; /* Mayor espacio vertical entre cada video/foto */
-            }
-            .portfolio-item {
-                border-radius: 20px; /* Bordes más curvos para un look más "app premium" */
-            }
-
+            .portfolio-grid { grid-template-columns: 1fr; gap: 40px; }
+            .portfolio-item { border-radius: 20px; }
             .stats-row { justify-content: center; gap: 20px; flex-wrap: wrap; }
             .about-card-container { padding: 40px 24px; }
-        
+            .hero { padding-top: 150px; }
         }
-          .hero {
-              padding-top: 150px;
-            }
 
-    /* --- CÓMO FUNCIONA --- */
-.process-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.process-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
-    padding: 40px;
-    text-align: center;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.process-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top, rgba(168, 85, 247, 0.15), transparent 60%);
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.process-card:hover::before {
-    opacity: 1;
-}
-
-.process-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(168, 85, 247, 0.4);
-}
-
-.process-icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    background: var(--primary-gradient);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    box-shadow: 0 10px 30px var(--primary-glow);
-}
-
-.process-card h3 {
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.process-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .process-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 40px; text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
+        .process-card:hover { transform: translateY(-6px); border-color: rgba(168, 85, 247, 0.4); }
+        .process-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 10px 30px var(--primary-glow); }
+        .id-name { display: block; margin-top: 10px; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; }
+        .id-role { display: block; margin-top: 6px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -288,8 +169,8 @@
 
     <div id="lightbox">
         <div class="close-lightbox" title="Cerrar (Esc)"><i class="fas fa-times"></i></div>
-        <div class="nav-arrow arrow-prev" title="Anterior"><i class="fas fa-chevron-left"></i></div>
-        <div class="nav-arrow arrow-next" title="Siguiente"><i class="fas fa-chevron-right"></i></div>
+        <div class="nav-arrow arrow-prev" style="left: 30px;" title="Anterior"><i class="fas fa-chevron-left"></i></div>
+        <div class="nav-arrow arrow-next" style="right: 30px;" title="Siguiente"><i class="fas fa-chevron-right"></i></div>
         <div class="lightbox-content"></div>
     </div>
 
@@ -300,18 +181,20 @@
             <div class="nav-links">
                 <a href="#sobre-mi" onclick="closeMenu()">Sobre Mí</a>
                 <a href="#portfolio" onclick="closeMenu()">Portafolio</a>
+                <a href="#como-funciona" onclick="closeMenu()">Proceso</a>
                 <a href="#precios" onclick="closeMenu()">Planes</a>
-                <button class="btn btn-primary" onclick="window.location.href='#contacto'; closeMenu()">Empezar Ahora</button>
+               <button class="btn btn-primary" onclick="window.open('https://wa.me/573209263077?text=Vi%20tu%20portafolio%20y%20me%20interesa%20trabajar%20contigo','_blank'); closeMenu()">Empezar Ahora</button>
+
             </div>
         </div>
     </nav>
 
-    <section class="hero container">
+    <header class="hero container">
         <div class="hero-grid">
             <div class="hero-text">
                 <span class="badge reveal reveal-up">Producción High-Ticket</span>
-                <h1 class="reveal reveal-left delay-1">Video Vertical con <br><span class="text-gradient">Calidad de Cine.</span></h1>
-                <p class="reveal reveal-left delay-2">Post-producción premium para marcas que no se conforman. Destaca en Reels y TikTok con una estética impecable.</p>
+                <h1 class="reveal reveal-left delay-1">Edición de Video Vertical con <br><span class="text-gradient">Calidad de Cine.</span></h1>
+                <p class="reveal reveal-left delay-2">Post-producción premium para marcas personales y negocios que buscan dominar Reels y TikTok con narrativa de alto impacto.</p>
                 <div class="hero-btns reveal reveal-up delay-3">
                     <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
                     <a href="#contacto" class="btn btn-secondary">Agendar llamada</a>
@@ -320,148 +203,153 @@
             
             <div class="phone-container reveal reveal-right reveal-scale delay-2" data-speed="0.05">
                 <div class="phone-mockup">
-                    <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?q=80&w=600&auto=format&fit=crop" style="width:100%; height:100%; object-fit:cover; opacity: 0.8;">
+                    <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?q=80&w=600&auto=format&fit=crop" alt="Demo Video Vertical" style="width:100%; height:100%; object-fit:cover; opacity: 0.8;">
                     <i class="fas fa-play-circle" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:4rem; color:white; opacity:0.9;"></i>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section id="sobre-mi" class="container section-padding">
-        <div class="about-card-container reveal reveal-up">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2 class="reveal reveal-left delay-1">About <span class="text-gradient">Me</span></h2>
-                    <p class="reveal reveal-left delay-2">Soy Gian, un editor de video obsesionado con la retención. No solo corto clips; construyo narrativas visuales diseñadas para detener el scroll.</p>
-                    <div class="stats-row">
-                        <div class="stat-item reveal reveal-up delay-1"><h3 class="counter" data-target="50">0</h3><p>Proyectos Fin.</p></div>
-                        <div class="stat-item reveal reveal-up delay-2"><h3 class="counter" data-target="4">0</h3><p>Años Exp.</p></div>
-                        <div class="stat-item reveal reveal-up delay-3"><h3 class="counter" data-target="98">0</h3><p>% Retención</p></div>
-                    </div>
-                </div>
-                <div class="about-visual reveal reveal-right delay-2">
-                    <div class="id-card-wrapper">
-                        <div class="id-card" id="tiltCard">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" class="id-photo" alt="Foto Gian">
-                            <span class="id-name">GIAN VISUALS</span><br>
-                            <span class="id-role">Visual Storyteller</span>
+    <main>
+        <section id="sobre-mi" class="container section-padding">
+            <div class="about-card-container reveal reveal-up">
+                <div class="about-grid">
+                    <article class="about-text">
+                        <h2 class="reveal reveal-left delay-1">Visual <span class="text-gradient">Storyteller</span></h2>
+                        <p class="reveal reveal-left delay-2">Soy Gian, editor de video especializado en **estrategias de retención**. Mi enfoque combina la estética cinematográfica con algoritmos modernos para detener el scroll y convertir seguidores en clientes.</p>
+                        <div class="stats-row">
+                            <div class="stat-item reveal reveal-up delay-1"><h3 class="counter" data-target="50">0</h3><p>Proyectos Fin.</p></div>
+                            <div class="stat-item reveal reveal-up delay-2"><h3 class="counter" data-target="4">0</h3><p>Años Exp.</p></div>
+                            <div class="stat-item reveal reveal-up delay-3"><h3 class="counter" data-target="98">0</h3><p>% Retención</p></div>
+                        </div>
+                    </article>
+                    <div class="about-visual reveal reveal-right delay-2">
+                        <div class="id-card-wrapper">
+                            <div class="id-card" id="tiltCard">
+                                <img src="yo.jpg" class="id-photo" alt="Gian Paol Muñoz - Editor de Video">
+                                <span class="id-name">GIAN PAOL MUÑOZ</span>
+                                <span class="id-role">Visual Storyteller</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="portfolio" class="section-padding container">
-        <div class="section-header reveal reveal-up">
-            <h2>Showcase <span class="text-gradient">Premium</span></h2>
-            <p>Una mezcla curada de fotografía y narrativa visual vertical.</p>
-        </div>
-
-        <div class="filter-container reveal reveal-up">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="video">Videos</button>
-            <button class="filter-btn" data-filter="photo">Fotografía</button>
-        </div>
-
-        <div class="portfolio-grid">
-            <div class="portfolio-item vertical reveal reveal-up delay-1" data-category="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-type="video">
-                <div class="item-type"><i class="fas fa-play"></i></div>
-                <video muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()">
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                </video>
-                <div class="portfolio-overlay"><h3>Commercial Style</h3><p>Corte Dinámico & VFX</p></div>
+        <section id="portfolio" class="section-padding container">
+            <div class="section-header reveal reveal-up">
+                <h2>Showcase <span class="text-gradient">Premium</span></h2>
+                <p>Narrativa visual vertical diseñada para el impacto digital.</p>
             </div>
 
-            <div class="portfolio-item reveal reveal-up delay-2" data-category="photo" data-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200" data-type="image">
-                <div class="item-type"><i class="fas fa-camera"></i></div>
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600" alt="Work">
-                <div class="portfolio-overlay"><h3>Nike Midnight</h3><p>Producto High-Ticket</p></div>
+            <div class="filter-container reveal reveal-up">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="video">Videos</button>
+                <button class="filter-btn" data-filter="photo">Fotografía</button>
             </div>
 
-            <div class="portfolio-item reveal reveal-up delay-3" data-category="photo" data-src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200" data-type="image">
-                <div class="item-type"><i class="fas fa-camera"></i></div>
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600" alt="Work">
-                <div class="portfolio-overlay"><h3>Luxury Watch</h3><p>Styling & Edición</p></div>
-            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item vertical reveal reveal-up delay-1" data-category="video" data-src="https://vimeo.com/1158062751?fl=pl&fe=sh" data-type="video">
 
-            <div class="portfolio-item vertical reveal reveal-up delay-4" data-category="video" data-src="https://www.w3schools.com/html/movie.mp4" data-type="video">
-                <div class="item-type"><i class="fas fa-play"></i></div>
-                <video muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()">
-                    <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-                </video>
-                <div class="portfolio-overlay"><h3>Reel Inmobiliario</h3><p>Estrategia de Retención</p></div>
-            </div>
-        </div>
-    </section>
-    
-    
-    <section id="como-funciona" class="section-padding container">
-    <div class="section-header reveal reveal-up">
-        <span class="badge"></span>
-        <h2>Cómo <span class="text-gradient">Funciona</span></h2>
-        <p>Un proceso claro, simple y sin fricción.</p>
-    </div>
-
-    <div class="process-grid">
-        <div class="process-card reveal reveal-up delay-1">
-            <div class="process-icon">
-                <i class="fas fa-comments"></i>
-            </div>
-            <h3>1. Llamada estratégica</h3>
-            <p>Entendemos tu marca, tu audiencia y el objetivo real de tus videos antes de editar una sola toma.</p>
-        </div>
-
-        <div class="process-card reveal reveal-up delay-2">
-            <div class="process-icon">
-                <i class="fas fa-wand-magic-sparkles"></i>
-            </div>
-            <h3>2. Edición & narrativa</h3>
-            <p>Transformo tu material en piezas verticales diseñadas para retención, ritmo y estética premium.</p>
-        </div>
-
-        <div class="process-card reveal reveal-up delay-3">
-            <div class="process-icon">
-                <i class="fas fa-rocket"></i>
-            </div>
-            <h3>3. Entrega lista para publicar</h3>
-            <p>Recibes videos optimizados para Reels y TikTok, listos para escalar tu presencia digital.</p>
-        </div>
-    </div>
-</section>
+                    <div class="item-type"><i class="fas fa-play"></i></div>
+                    <video muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="https://youtube.com/shorts/sS6-BWuXkik?si=JKyywPKOjOsUe_j8" type="video/mp4">
+                    </video>
+                    <div class="portfolio-overlay"><h3>Julian Bodybuilder</h3><p>Recap Classic Physique 2024</p></div>
+                </div>
 
 
+                <div class="portfolio-item reveal reveal-up delay-2" data-category="photo" data-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200" data-type="image">
+                    <div class="item-type"><i class="fas fa-camera"></i></div>
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600" alt="Edición de producto Nike High-Ticket">
+                    <div class="portfolio-overlay"><h3>Nike Midnight</h3><p>Producto High-Ticket</p></div>
+                </div>
 
-    <section id="precios" class="section-padding container">
-        <div class="section-header reveal reveal-up">
-            <h2>Planes Escalables</h2>
-        </div>
-        <div class="cards-grid">
-            <div class="glass-card reveal reveal-up delay-1">
-                <h3>Starter</h3>
-                <span class="price-tag">$500 <span class="price-period">/mes</span></span>
-                <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
+                <div class="portfolio-item reveal reveal-up delay-3" data-category="photo" data-src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200" data-type="image">
+                    <div class="item-type"><i class="fas fa-camera"></i></div>
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600" alt="Fotografía de producto de lujo Reloj">
+                    <div class="portfolio-overlay"><h3>Luxury Watch</h3><p>Styling & Edición</p></div>
+                </div>
+
+                <div class="portfolio-item vertical reveal reveal-up delay-4" data-category="video" data-src="https://www.w3schools.com/html/movie.mp4" data-type="video">
+                    <div class="item-type"><i class="fas fa-play"></i></div>
+                    <video muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()">
+                        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
+                    </video>
+                    <div class="portfolio-overlay"><h3>Reel Inmobiliario</h3><p>Estrategia de Retención</p></div>
+                </div>
             </div>
-            <div class="glass-card reveal reveal-up delay-2" style="border-color: #A855F7;">
-                <h3>Growth</h3>
-                <span class="price-tag">$1,500 <span class="price-period">/mes</span></span>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
+
+
+        </section>
+
+
+        <section id="como-funciona" class="section-padding container">
+            <div class="section-header reveal reveal-up">
+                <h2>Proceso <span class="text-gradient">Estratégico</span></h2>
+                <p>Cómo llevamos tu contenido al siguiente nivel.</p>
             </div>
-            <div class="glass-card reveal reveal-up delay-3">
-                <h3>Enterprise</h3>
-                <span class="price-tag">$3,000+</span>
-                <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Contactar</button>
+            <div class="process-grid">
+                <div class="process-card reveal reveal-up delay-1">
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3>1. Consultoría Técnica</h3>
+                    <p>Analizamos tu nicho y objetivos antes de editar, asegurando que cada segundo cuente.</p>
+                </div>
+                <div class="process-card reveal reveal-up delay-2">
+                    <div class="process-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <h3>2. Edición de Alto Nivel</h3>
+                    <p>Post-producción profesional enfocada en ritmo, colorimetría y Sound Design premium.</p>
+                </div>
+                <div class="process-card reveal reveal-up delay-3">
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>3. Optimización Digital</h3>
+                    <p>Recibes tus videos listos para publicar, configurados para el máximo alcance orgánico.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="precios" class="section-padding container">
+            <div class="section-header reveal reveal-up">
+                <h2>Planes de Inversión</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="glass-card reveal reveal-up delay-1">
+                    <h3>Starter</h3>
+                    <span class="price-tag">$500 <span class="price-period">/mes</span></span>
+                    <p style="color:var(--text-muted)">Ideal para marcas emergentes.</p>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
+                </div>
+                <div class="glass-card reveal reveal-up delay-2" style="border-color: #A855F7;">
+                    <h3>Growth</h3>
+                    <span class="price-tag">$1,500 <span class="price-period">/mes</span></span>
+                    <p style="color:var(--text-muted)">Escalado agresivo de contenido.</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
+                </div>
+                <div class="glass-card reveal reveal-up delay-3">
+                    <h3>Enterprise</h3>
+                    <span class="price-tag">Custom</span>
+                    <p style="color:var(--text-muted)">Soluciones para agencias y productoras.</p>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Contactar</button>
+                </div>
+            </div>
+
+
+
+
+
+
+        </section>
+    </main>
 
     <footer style="text-align:center; padding: 60px 0; border-top: 1px solid var(--border-light);">
         <div class="logo">GIAN <span class="text-gradient">VISUALS</span></div>
-        <p style="color: var(--text-muted); margin-top: 10px;">&copy; 2026 Gian Visuals. Todos los derechos reservados.</p>
+        <p id="copyright" style="color: var(--text-muted); margin-top: 10px;"></p>
     </footer>
 
     <script>
-        // Mantiene toda tu lógica original de JS intacta
+        // Actualización dinámica del año (Fix SEO & Trust)
+        document.getElementById('copyright').innerHTML = `&copy; ${new Date().getFullYear()} Gian Visuals. Todos los derechos reservados.`;
+
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         menuToggle.onclick = () => {
@@ -485,12 +373,13 @@
             });
         });
 
+        // Lógica de Lightbox mantenida
         const items = Array.from(document.querySelectorAll('.portfolio-item'));
         const lightbox = document.getElementById('lightbox');
         const lightboxContent = lightbox.querySelector('.lightbox-content');
         const closeBtn = lightbox.querySelector('.close-lightbox');
-        const prevBtn = lightbox.querySelector('.arrow-prev');
-        const nextBtn = lightbox.querySelector('.arrow-next');
+        const prevBtn = lightbox.querySelector('.nav-arrow[style*="left"]');
+        const nextBtn = lightbox.querySelector('.nav-arrow[style*="right"]');
         let currentVisibleItems = [...items];
         let currentIndex = 0;
 
@@ -498,7 +387,7 @@
             const item = currentVisibleItems[index];
             const src = item.dataset.src;
             const type = item.dataset.type;
-            lightboxContent.innerHTML = type === 'image' ? `<img src="${src}">` : `<video src="${src}" controls autoplay loop></video>`;
+            lightboxContent.innerHTML = type === 'image' ? `<img src="${src}" alt="Portfolio Full">` : `<video src="${src}" controls autoplay loop></video>`;
             lightbox.style.display = 'flex';
             setTimeout(() => lightbox.classList.add('active'), 10);
             document.body.style.overflow = 'hidden';
@@ -550,25 +439,29 @@
             card.style.animation = 'floatCard 6s ease-in-out infinite';
         };
 
+        // Fix de contadores: Ahora se activan solo una vez y tienen el formato correcto
         let started = false;
         const statsSection = document.querySelector('.about-card-container');
         const statsObserver = new IntersectionObserver((entries) => {
             if(entries[0].isIntersecting && !started) {
                 document.querySelectorAll('.counter').forEach(counter => {
                     const target = +counter.dataset.target;
+                    let count = 0;
+                    const increment = target / 30;
                     const update = () => {
-                        const count = +counter.innerText.replace('%','').replace('+','');
-                        const speed = target / 50;
                         if(count < target) {
-                            counter.innerText = Math.ceil(count + speed) + (target === 98 ? '%' : '+');
-                            setTimeout(update, 30);
-                        } else { counter.innerText = target + (target === 98 ? '%' : '+'); }
+                            count += increment;
+                            counter.innerText = Math.ceil(count) + (target === 98 ? '%' : '+');
+                            setTimeout(update, 40);
+                        } else {
+                            counter.innerText = target + (target === 98 ? '%' : '+');
+                        }
                     };
                     update();
                 });
                 started = true;
             }
-        });
+        }, {threshold: 0.5});
         statsObserver.observe(statsSection);
     </script>
 </body>
