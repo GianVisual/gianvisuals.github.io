@@ -117,8 +117,22 @@
 
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .portfolio-item { position: relative; border-radius: var(--radius-md); overflow: hidden; background: #000; aspect-ratio: 16/9; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+
+
+
         .portfolio-item.vertical { aspect-ratio: 9/16; grid-row: span 2; }
-        .portfolio-item img, .portfolio-item video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1); }
+        .portfolio-item img, 
+        .portfolio-item video
+         { width: 100%; height: 100%; object-fit: cover;
+
+
+
+
+          transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1); }
+
+
+
+
         .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 70%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; opacity: 0; transition: 0.3s; }
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
         .portfolio-item:hover img, .portfolio-item:hover video { transform: scale(1.08); }
@@ -192,13 +206,13 @@
     <header class="hero container">
         <div class="hero-grid">
             <div class="hero-text">
-                <span class="badge reveal reveal-up">Producción High-Ticket</span>
-                <h1 class="reveal reveal-left delay-1">Edición de Video Vertical con <br><span class="text-gradient">Calidad de Cine.</span></h1>
-                <p class="reveal reveal-left delay-2">Post-producción premium para marcas personales y negocios que buscan dominar Reels y TikTok con narrativa de alto impacto.</p>
+                <span class="badge reveal reveal-up">PARTNER CREATIVO 360°</span>
+                <h1 class="reveal reveal-left delay-1">Tu autoridad <br> no se explica, <br><span class="text-gradient"> se proyecta..</span></h1>
+                <p class="reveal reveal-left delay-2">Dominamos el lenguaje visual: video de alto impacto para tus redes y fotografías para tu ecosistema digital. Coherencia visual absoluta para aquellos que no aceptan menos que la excelencia</p>
                 <div class="hero-btns reveal reveal-up delay-3">
                     <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
 
-                    <button class="btn btn-secondary" onclick="window.open('https://wa.me/573209263077?text=Vi%20tu%20portafolio%20y%20me%20interesa%20trabajar%20contigo','_blank'); closeMenu()">Agendar llamada</button>
+                    <button class="btn btn-secondary" onclick="window.open('https://wa.me/573209263077?text=Vi%20tu%20portafolio%20y%20me%20interesa%20trabajar%20contigo','_blank'); closeMenu()">Solicita tu auditoria visual</button>
                 </div>
             </div>
             
@@ -216,20 +230,31 @@
             <div class="about-card-container reveal reveal-up">
                 <div class="about-grid">
                     <article class="about-text">
-                        <h2 class="reveal reveal-left delay-1">Visual <span class="text-gradient">Storyteller</span></h2>
-                        <p class="reveal reveal-left delay-2">Soy Gian, editor de video especializado en **estrategias de retención**. Mi enfoque combina la estética cinematográfica con algoritmos modernos para detener el scroll y convertir seguidores en clientes.</p>
+                        <h2 class="reveal reveal-left delay-1">Partner <span class="text-gradient">Creativo</span></h2>
+                        <br>
+                        <p class="reveal reveal-left delay-2"> Soy <strong>Gian</strong>, <strong>Comunicador Audiovisual</strong> de formación y <strong>estratega visual</strong> por vocación. 
+                    Ayudo a <strong>marcas y líderes de industria</strong> a cerrar la brecha entre su <strong>valor real</strong> y su <strong>imagen percibida</strong>. <br><br>
+
+                    No diseño piezas sueltas; construyo <strong>ecosistemas audiovisuales</strong> que proyectan 
+                    <strong>autoridad instantánea</strong>.  
+                    Mi objetivo es convertirte en 
+                    <strong>el referente indiscutible de tu nicho</strong>. <br><br>
+
+                    Si buscas un realizador, hay miles.  
+                    Si buscas un <strong>partner creativo</strong>, estás en el <strong>lugar correcto</strong>.
+                </p>
                         <div class="stats-row">
                             <div class="stat-item reveal reveal-up delay-1"><h3 class="counter" data-target="50">0</h3><p>Proyectos Fin.</p></div>
                             <div class="stat-item reveal reveal-up delay-2"><h3 class="counter" data-target="4">0</h3><p>Años Exp.</p></div>
-                            <div class="stat-item reveal reveal-up delay-3"><h3 class="counter" data-target="98">0</h3><p>% Retención</p></div>
+                            <div class="stat-item reveal reveal-up delay-3"><h3 class="counter" data-target="90">0</h3><p>% Satisfacción</p></div>
                         </div>
                     </article>
                     <div class="about-visual reveal reveal-right delay-2">
                         <div class="id-card-wrapper">
                             <div class="id-card" id="tiltCard">
                                 <img src="yo.jpg" class="id-photo" alt="Gian Paol Muñoz - Editor de Video">
-                                <span class="id-name">GIAN PAOL MUÑOZ</span>
-                                <span class="id-role">Visual Storyteller</span>
+                                <span class="id-name">GIAN PAOL</span>
+                                <span class="id-role"> Comunicador Audiovisual</span>
                             </div>
                         </div>
                     </div>
@@ -260,17 +285,182 @@
                 </div>
 
 
-                <div class="portfolio-item reveal reveal-up delay-2" data-category="photo" data-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200" data-type="image">
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r4.jpg" data-type="image">
+    <img src="fotos/r4.jpg" alt="">
+</div>
+
+
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r5.jpg" data-type="image">
+    <img src="fotos/r5.jpg" alt="">
+</div>
+
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/r6.jpg" data-type="image">
+    <img src="fotos/r6.jpg" alt="">
+</div>
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r7.jpg" data-type="image">
+    <img src="fotos/r7.jpg" alt="">
+</div>
+
+
+
+                <div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda.jpg" data-type="image">
                     <div class="item-type"><i class="fas fa-camera"></i></div>
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600" alt="Edición de producto Nike High-Ticket">
-                    <div class="portfolio-overlay"><h3>Nike Midnight</h3><p>Producto High-Ticket</p></div>
+                    <img src="fotos/Boda.jpg" alt="Fotografía de producto de lujo Reloj">
+                    <div class="portfolio-overlay"><h3>Boda Cristopher & Patricia</h3><p>2024</p></div>
                 </div>
 
-                <div class="portfolio-item reveal reveal-up delay-3" data-category="photo" data-src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200" data-type="image">
-                    <div class="item-type"><i class="fas fa-camera"></i></div>
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600" alt="Fotografía de producto de lujo Reloj">
-                    <div class="portfolio-overlay"><h3>Luxury Watch</h3><p>Styling & Edición</p></div>
-                </div>
+
+
+               <div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda1.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Boda1.jpg" alt="Boda 1">
+</div>
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda2.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Boda2.jpg" alt="Boda 2">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Boda3.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Boda3.jpg" alt="Boda 3">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda4.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Boda4.jpg" alt="Boda 4">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda5.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Boda5.jpg" alt="Boda 5">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Boda6.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Boda6.jpg" alt="Boda 6">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Isa1.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Isa1.jpg" alt="Isa 1">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Isa2.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Isa2.jpg" alt="Isa 2">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Isa3.jpg" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/Isa3.jpg" alt="Isa 3">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p5.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p5.png" alt="p5">
+</div>
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p6.jpg" data-type="image">
+    <img src="fotos/p6.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p7.jpg" data-type="image">
+    <img src="fotos/p7.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p8.jpg" data-type="image">
+    <img src="fotos/p8.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p9.jpg" data-type="image">
+    <img src="fotos/p9.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r1.jpg" data-type="image">
+    <img src="fotos/r1.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r2.jpg" data-type="image">
+    <img src="fotos/r2.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/r3.jpg" data-type="image">
+    <img src="fotos/r3.jpg" alt="">
+</div>
+
+
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r8.jpg" data-type="image">
+    <img src="fotos/r8.jpg" alt="">
+</div>
+
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g1.jpeg" loading="lazy" alt="">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g2.jpeg" loading="lazy" alt="">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g3.jpeg" loading="lazy" alt="">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g4.jpeg" loading="lazy" alt="">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g5.jpeg" loading="lazy" alt="">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g6.jpeg" loading="lazy" alt="">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g7.jpeg" loading="lazy" alt="">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g8.jpeg" loading="lazy" alt="">
+</div>
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p1.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p1.png" alt="p1">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p2.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p2.png" alt="p2">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p3.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p3.png" alt="p3">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p4.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p4.png" alt="p4">
+</div>
+
+
+
 
                 <div class="portfolio-item vertical reveal reveal-up delay-4" data-category="video" data-src="https://www.w3schools.com/html/movie.mp4" data-type="video">
                     <div class="item-type"><i class="fas fa-play"></i></div>
@@ -293,18 +483,18 @@
             <div class="process-grid">
                 <div class="process-card reveal reveal-up delay-1">
                     <div class="process-icon"><i class="fas fa-comments"></i></div>
-                    <h3>1. Consultoría Técnica</h3>
-                    <p>Analizamos tu nicho y objetivos antes de editar, asegurando que cada segundo cuente.</p>
+                    <h3>1. Inmersión Creativa</h3>
+                    <p>Decodificamos tu ADN de marca para diseñar una narrativa visual que proyecte autoridad y conecte.</p>
                 </div>
                 <div class="process-card reveal reveal-up delay-2">
                     <div class="process-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
-                    <h3>2. Edición de Alto Nivel</h3>
-                    <p>Post-producción profesional enfocada en ritmo, colorimetría y Sound Design premium.</p>
+                    <h3>2. Ejecución Audiovisual </h3>
+                    <p>Fusionamos contenido audiovisual bajo una estética propia, garantizando coherencia en todo tu ecosistema</p>
                 </div>
                 <div class="process-card reveal reveal-up delay-3">
                     <div class="process-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>3. Optimización Digital</h3>
-                    <p>Recibes tus videos listos para publicar, configurados para el máximo alcance orgánico.</p>
+                    <h3>3. Despliegue de Activos</h3>
+                    <p>Entregamos contenido optimizado y de alto impacto, diseñado para dominar y consolidar tu estatus como referente..</p>
                 </div>
             </div>
         </section>
