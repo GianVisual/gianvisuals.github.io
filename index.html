@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Gian Visuals | Editor de Video Vertical para Reels, TikTok y Shorts</title>
+    <title>Gian Visuals | Partner creativo </title>
     <meta name="description" content="Edición de video vertical high-ticket. Especialista en retención y narrativa visual para marcas premium en Reels y TikTok. Calidad de cine para tu contenido.">
     <meta name="keywords" content="editor de video vertical, edición de reels, post-producción tiktok, video high-ticket, gian visuals, visual storyteller">
     <link rel="canonical" href="https://gianvisuals.com/">
@@ -18,6 +18,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
 
     <style>
         /* MANTENIDO: TU SISTEMA DE DISEÑO ORIGINAL */
@@ -173,11 +175,91 @@
         .process-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 10px 30px var(--primary-glow); }
         .id-name { display: block; margin-top: 10px; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; }
         .id-role { display: block; margin-top: 6px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--text-muted); }
+
+
+        #particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+
+ /* NUEVO: Lead Magnet Section */
+        .lead-magnet {
+            background: var(--primary-gradient); padding: 60px; border-radius: 30px;
+            text-align: center; margin: 80px 0; position: relative; overflow: hidden;
+        }
+        .lead-magnet::before {
+            content: ''; position: absolute; inset: -50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .lead-magnet h2 { font-size: 2.5rem; margin-bottom: 20px; position: relative; z-index: 1; }
+        .lead-magnet p { font-size: 1.2rem; margin-bottom: 30px; position: relative; z-index: 1; }
+        .lead-magnet form { display: flex; gap: 15px; max-width: 600px; margin: 0 auto; position: relative; z-index: 1; flex-wrap: wrap; justify-content: center; }
+        .lead-magnet input { flex: 1; min-width: 200px; padding: 15px 20px; border-radius: 50px; border: none; font-size: 1rem; }
+        .lead-magnet button { padding: 15px 40px; background: #000; color: #fff; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: var(--transition); }
+        .lead-magnet button:hover { transform: scale(1.05); background: #1a1a1a; }
+        .lead-magnet small { display: block; margin-top: 15px; font-size: 0.85rem; opacity: 0.9; position: relative; z-index: 1; }
+
+        /* NUEVO: FAQ Section */
+        .faq-section { margin: 80px 0; }
+        .faq-item { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 25px; margin-bottom: 20px; cursor: pointer; transition: var(--transition); }
+        .faq-item:hover { border-color: rgba(168, 85, 247, 0.4); }
+        .faq-question { font-size: 1.2rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { margin-top: 15px; color: var(--text-muted); line-height: 1.7; display: none; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-icon { transition: transform 0.3s; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+
+        /* NUEVO: Urgency elements */
+        .urgency-badge {
+            display: inline-block; background: #ef4444; color: white;
+            padding: 6px 15px; border-radius: 20px; font-size: 0.8rem;
+            font-weight: 700; margin-bottom: 15px; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+        .section-padding { padding: 100px 0; }
+
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .process-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 40px; text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
+        .process-card:hover { transform: translateY(-6px); border-color: rgba(168, 85, 247, 0.4); }
+        .process-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 10px 30px var(--primary-glow); }
+        .id-name { display: block; margin-top: 10px; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; }
+        .id-role { display: block; margin-top: 6px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .hero-grid, .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-btns { justify-content: center; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .proof-bar { justify-content: center; }
+            .menu-toggle { display: block; }
+            .nav-links { position: fixed; top: 0; right: -100%; height: 100vh; width: 100%; background: rgba(5, 5, 7, 0.98); flex-direction: column; justify-content: center; transition: 0.4s; }
+            .nav-links.active { right: 0; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .stats-row { justify-content: center; gap: 20px; flex-wrap: wrap; }
+            .about-card-container, .testimonials { padding: 40px 24px; }
+            .hero { padding-top: 150px; }
+            .lead-magnet { padding: 40px 24px; }
+            .lead-magnet h2 { font-size: 2rem; }
+            .lead-magnet form { flex-direction: column; }
+            .pricing-comparison { font-size: 0.85rem; }
+            .pricing-comparison th, .pricing-comparison td { padding: 12px 8px; }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="ambient-light"></div>
+    <canvas id="particles-canvas"></canvas>
     <div class="parallax-bg" data-speed="0.1" style="top: 10%; left: 5%;"></div>
     <div class="parallax-bg" data-speed="-0.15" style="top: 60%; right: 5%; background: rgba(236, 72, 153, 0.3);"></div>
 
@@ -208,7 +290,7 @@
             <div class="hero-text">
                 <span class="badge reveal reveal-up">PARTNER CREATIVO 360°</span>
                 <h1 class="reveal reveal-left delay-1">Tu autoridad <br> no se explica, <br><span class="text-gradient"> se proyecta.</span></h1>
-                <p class="reveal reveal-left delay-2">Dominamos el lenguaje: contenido audiovisual para tu ecosistema digital. Coherencia multimedia para aquellos que no aceptan menos que la excelencia</p>
+                <p class="reveal reveal-left delay-2">Dominamos el lenguaje: contenido audiovisual para tu ecosistema digital. Coherencia multimedia para aquellos que no aceptan menos que la excelencia.</p>
                 <div class="hero-btns reveal reveal-up delay-3">
                     <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
 
@@ -310,38 +392,38 @@
 
 
 
-                <div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda.JPG" data-type="image">
+                <div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda.jpg" data-type="image">
                     <div class="item-type"><i class="fas fa-camera"></i></div>
-                    <img src="fotos/Boda.JPG" alt="Fotografía de producto de lujo Reloj">
+                    <img src="fotos/Boda.jpg" alt="Fotografía de producto de lujo Reloj">
                     <div class="portfolio-overlay"><h3>Boda Cristopher & Patricia</h3><p>2024</p></div>
                 </div>
 
 
 
-               <div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda1.JPG" data-type="image">
+               <div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda1.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda1.JPG" alt="Boda 1">
+    <img src="fotos/Boda1.jpg" alt="Boda 1">
 </div>
 
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda2.JPG" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda2.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda2.JPG" alt="Boda 2">
+    <img src="fotos/Boda2.jpg" alt="Boda 2">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/boda3.JPG" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Boda3.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/boda3.JPG" alt="Boda 3">
+    <img src="fotos/Boda3.jpg" alt="Boda 3">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda4.JPG" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda4.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda4.JPG" alt="Boda 4">
+    <img src="fotos/Boda4.jpg" alt="Boda 4">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda5.JPG" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda5.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda5.JPG" alt="Boda 5">
+    <img src="fotos/Boda5.jpg" alt="Boda 5">
 </div>
 
 <div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Boda6.jpg" data-type="image">
@@ -526,7 +608,94 @@
 
 
 
+ <!-- NUEVO: Lead Magnet -->
+        <section class="container">
+            <div class="lead-magnet reveal reveal-up">
+                <h2>📥 Descarga Gratis: "Anatomía de un Reel que Vende"</h2>
+                <p>Aprende la fórmula exacta que usan creadores que facturan +$50K/mes con video vertical</p>
+                <form onsubmit="return submitLeadForm(event)">
+                    <input type="email" placeholder="Tu mejor email" required>
+                    <input type="text" placeholder="Tu nombre" required>
+                    <button type="submit">Envíame el PDF (100% Gratis)</button>
+                </form>
+                <small>🔒 No spam. Solo valor. Cancela cuando quieras.</small>
+            </div>
+        </section>
 
+         <!-- NUEVA SECCIÓN: FAQ -->
+        <section class="container faq-section">
+            <div class="section-header reveal reveal-up">
+                <h2>Preguntas <span class="text-gradient">Frecuentes</span></h2>
+            </div>
+
+            <div class="faq-item reveal reveal-up delay-1">
+                <div class="faq-question">
+                    ¿Qué pasa si no tengo material grabado?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    No hay problema. Puedo crear videos con stock footage premium, animaciones y motion graphics. 
+                    También te puedo guiar sobre qué grabar con tu celular para aprovechar al máximo el servicio.
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-up delay-2">
+                <div class="faq-question">
+                    ¿Cuánto tiempo toma recibir el primer video?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    Depende del plan: Starter en 5 días, Growth en 48 horas, Enterprise en 24 horas. 
+                    Para proyectos urgentes podemos hacer entrega exprés con un costo adicional.
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-up delay-3">
+                <div class="faq-question">
+                    ¿Qué pasa si no me gusta el resultado?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    Los planes Growth y Enterprise incluyen correcciones ilimitadas hasta que estés 100% satisfecho. 
+                    En Starter tienes 2 rondas de ajustes. Nunca entregas sin tu aprobación.
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-up delay-1">
+                <div class="faq-question">
+                    ¿Trabajan con empresas fuera de Colombia?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí, 100%. Trabajo con clientes en USA, España, México y Argentina. 
+                    Todo es digital: recibes material por Drive/Dropbox y entregas por la misma vía.
+                </div>
+            </div>
+
+            <div class="faq-item reveal reveal-up delay-2">
+                <div class="faq-question">
+                    ¿Puedo cancelar en cualquier momento?
+                    <i class="fas fa-chevron-down faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    Los planes son mensuales sin permanencia. Puedes cancelar cuando quieras con 7 días de anticipación. 
+                    Si no estás satisfecho el primer mes, te devuelvo el 100% del dinero.
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="container" style="margin: 80px auto;">
+            <div class="lead-magnet reveal reveal-up" style="background: linear-gradient(135deg, #1a1c29 0%, #0f1016 100%); border: 2px solid rgba(168, 85, 247, 0.5);">
+                <div class="urgency-badge">⏰ Quedan solo 2 spots disponibles este mes</div>
+                <h2 style="font-size: 3rem;">¿Listo para Dominar tu Nicho?</h2>
+                <p style="font-size: 1.3rem;">Agenda tu llamada estratégica de 15 minutos (100% gratis, sin compromiso)</p>
+                <button class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 50px;" onclick="window.open('https://wa.me/573209263077?text=Quiero%20agendar%20mi%20llamada%20gratis%20de%2015%20min','_blank')">
+                    📅 Agendar Ahora (Gratis)
+                </button>
+                <small>🔒 Sin presión de venta. Solo hablamos de tus objetivos.</small>
+            </div>
+      
 
 
         </section>
@@ -654,6 +823,90 @@
             }
         }, {threshold: 0.5});
         statsObserver.observe(statsSection);
+
+
+
+        // ===== 3D PARTICLES CANVAS =====
+window.addEventListener('load', () => {
+    if (typeof THREE === 'undefined') return;
+
+    const canvas = document.getElementById('particles-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ 
+        canvas: canvas,
+        alpha: true, 
+        antialias: true 
+    });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Create particles
+    const geometry = new THREE.BufferGeometry();
+    const vertices = [];
+    const colors = [];
+    
+    for(let i = 0; i < 2000; i++) {
+        vertices.push(
+            Math.random() * 2000 - 1000,
+            Math.random() * 2000 - 1000,
+            Math.random() * 2000 - 1000
+        );
+        
+        // Gradient colors (purple/pink matching your theme)
+        const color = new THREE.Color();
+        color.setHSL(0.6 + Math.random() * 0.2, 0.8, 0.6);
+        colors.push(color.r, color.g, color.b);
+    }
+    
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+    
+    const material = new THREE.PointsMaterial({ 
+        size: 2,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending
+    });
+    
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+    camera.position.z = 500;
+
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        particles.rotation.x += 0.0003;
+        particles.rotation.y += 0.0005;
+        
+        // Mouse interaction
+        camera.position.x += (mouseX * 50 - camera.position.x) * 0.05;
+        camera.position.y += (mouseY * 50 - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+        
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+});
+
+
     </script>
 </body>
 </html>
