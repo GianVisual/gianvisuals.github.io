@@ -394,166 +394,179 @@
 </div>
 
 
+<!-- ============================================
+     PORTFOLIO GRID - OPTIMIZADO
+     Estrategia:
+     - loading="lazy" en TODAS
+     - decoding="async" para no bloquear el hilo principal
+     - Se elimina la clase "reveal" de imágenes (conflicto con lazy)
+     - width/height para evitar CLS (ajusta según tus dimensiones reales)
+     - alt descriptivos para SEO
+============================================ -->
 
-
-
-
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r4.webp" data-type="image">
-    <img src="fotos/r4.webp" alt="">
+<!-- GRUPO R: Retratos -->
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r4.webp" data-type="image">
+    <img src="fotos/r4.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r5.webp" data-type="image">
-    <img src="fotos/r5.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r5.webp" data-type="image">
+    <img src="fotos/r5.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/r6.webp" data-type="image">
-    <img src="fotos/r6.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r6.webp" data-type="image">
+    <img src="fotos/r6.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r7.webp" data-type="image">
-    <img src="fotos/r7.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r7.webp" data-type="image">
+    <img src="fotos/r7.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r1.webp" data-type="image">
+    <img src="fotos/r1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r2.webp" data-type="image">
+    <img src="fotos/r2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r3.webp" data-type="image">
+    <img src="fotos/r3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
+</div>
+
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r8.webp" data-type="image">
+    <img src="fotos/r8.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
+</div>
+
+<!-- GRUPO BODA: Cristopher & Patricia 2024 -->
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda.webp" alt="FotografíaBoda Cristopher & Patrici">
-    <div class="portfolio-overlay"><h3>Boda Cristopher & Patricia</h3><p>2024</p></div>
+    <img src="fotos/Boda.webp" loading="lazy" decoding="async" width="600" height="900" alt="Fotografía de boda Cristopher y Patricia 2024">
+    <div class="portfolio-overlay">
+        <h3>Boda Cristopher & Patricia</h3>
+        <p>2024</p>
+    </div>
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda1.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda1.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda1.webp" alt="Boda 1">
+    <img src="fotos/Boda1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - ceremonia">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda2.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda2.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda2.webp" alt="Boda 2">
+    <img src="fotos/Boda2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - celebración">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/boda3.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/boda3.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/boda3.webp" alt="Boda 3">
+    <img src="fotos/boda3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - momentos">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda4.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda4.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda4.webp" alt="Boda 4">
+    <img src="fotos/Boda4.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - novios">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda5.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda5.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda5.webp" alt="Boda 5">
+    <img src="fotos/Boda5.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - detalle">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Boda6.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda6.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda6.webp" alt="Boda 6">
+    <img src="fotos/Boda6.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - recepción">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Isa1.webp" data-type="image">
+<!-- GRUPO ISA -->
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Isa1.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Isa1.webp" alt="Isa 1">
+    <img src="fotos/Isa1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica Isa">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Isa2.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Isa2.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Isa2.webp" alt="Isa 2">
+    <img src="fotos/Isa2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica Isa">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Isa3.webp" data-type="image">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Isa3.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Isa3.webp" alt="Isa 3">
+    <img src="fotos/Isa3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica Isa">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p5.webp" data-type="image">
+<!-- GRUPO P -->
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p5.webp" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p5.webp" alt="p5">
+    <img src="fotos/p5.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p6.webp" data-type="image">
-    <img src="fotos/p6.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p6.webp" data-type="image">
+    <img src="fotos/p6.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p7.webp" data-type="image">
-    <img src="fotos/p7.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p7.webp" data-type="image">
+    <img src="fotos/p7.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p8.webp" data-type="image">
-    <img src="fotos/p8.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p8.webp" data-type="image">
+    <img src="fotos/p8.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p9.webp" data-type="image">
-    <img src="fotos/p9.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p9.webp" data-type="image">
+    <img src="fotos/p9.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r1.webp" data-type="image">
-    <img src="fotos/r1.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p1.webp" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r2.webp" data-type="image">
-    <img src="fotos/r2.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p2.webp" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/r3.webp" data-type="image">
-    <img src="fotos/r3.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p3.webp" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
 </div>
 
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r8.webp" data-type="image">
-    <img src="fotos/r8.webp" alt="">
+<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p4.webp" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p4.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
+</div>
+
+<!-- GRUPO G: ya tenían lazy, se mantienen + se agrega decoding -->
+<div class="portfolio-item vertical" data-category="photo">
+    <img src="fotos/g1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g1.webp" loading="lazy" alt="">
+    <img src="fotos/g2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g2.webp" loading="lazy" alt="">
+    <img src="fotos/g3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g3.webp" loading="lazy" alt="">
+    <img src="fotos/g4.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g4.webp" loading="lazy" alt="">
+    <img src="fotos/g5.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g5.webp" loading="lazy" alt="">
+    <img src="fotos/g6.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g6.webp" loading="lazy" alt="">
+    <img src="fotos/g7.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g7.webp" loading="lazy" alt="">
+    <img src="fotos/g8.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
 </div>
-
-<div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g8.webp" loading="lazy" alt="">
-</div>
-
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p1.webp" data-type="image">
-    <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p1.webp" alt="p1">
-</div>
-
-<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p2.webp" data-type="image">
-    <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p2.webp" alt="p2">
-</div>
-
-<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p3.webp" data-type="image">
-    <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p3.webp" alt="p3">
-</div>
-
-<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p4.webp" data-type="image">
-    <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p4.webp" alt="p4">
-</div>
-
 
 
 
