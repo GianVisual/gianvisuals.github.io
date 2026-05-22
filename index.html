@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Caveat:wght@700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
@@ -85,7 +88,26 @@
         .section-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
         .section-header p { color: var(--text-muted); font-size: 1.1rem; }
 
-        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 5, 7, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); z-index: 1000; border-bottom: 1px solid var(--border-light); padding: 16px 0; }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            z-index: 1000;
+            border-bottom: none;
+            padding: 24px 0;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(5, 5, 7, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
         .nav-container { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: 800; z-index: 1001; }
         .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -93,14 +115,360 @@
         .nav-links a:hover { color: #fff; }
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
 
-        .hero { padding-top: 180px; padding-bottom: 80px; min-height: 100vh; display: flex; align-items: center; position: relative; }
-        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; z-index: 2; }
-        .hero-text h1 { font-size: 4.5rem; line-height: 1.1; font-weight: 900; margin-bottom: 24px; letter-spacing: -2px; }
-        .hero-text p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; }
+        /* === Capa 3: Contenido textual (encima de todo) === */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            padding: 130px 0 70px;
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+        }
 
-        .phone-container { position: relative; display: flex; justify-content: center; }
-        .phone-mockup { width: 280px; height: 580px; border: 8px solid #1e293b; border-radius: 40px; background: #000; position: relative; transform: rotate(-3deg); transition: 0.5s; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .phone-mockup:hover { transform: rotate(0deg) scale(1.02); }
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 80px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr auto;
+            gap: 40px 80px;
+        }
+
+        .hero-left {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: left;
+            align-self: center;
+        }
+
+        .hero-left .badge { margin-bottom: 20px; }
+
+        .hero-left h1 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-size: clamp(2rem, 3.4vw, 3rem);
+            line-height: 1.02;
+            font-weight: 700;
+            letter-spacing: -2.5px;
+            margin: 0;
+            color: #FFFFFF;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-left h1 .muted {
+            color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+            letter-spacing: -2px;
+        }
+
+        .hero-right {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: right;
+            align-self: center;
+        }
+
+        .hero-desc {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0 0 auto;
+            line-height: 1.65;
+            max-width: 300px;
+            font-weight: 400;
+            text-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-cta-row {
+            grid-column: 1 / -1;
+            grid-row: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            padding-top: 30px;
+        }
+
+        .hero-cta-row .btn {
+            padding: 14px 28px;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================
+           ANIMACIONES DEL HERO
+           ============================================ */
+
+        /* --- Float sutil (respiración) con ritmos distintos por elemento --- */
+        @keyframes floatA {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-6px); }
+        }
+        @keyframes floatB {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-8px); }
+        }
+        @keyframes floatC {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-5px); }
+        }
+
+        .hero-left .badge {
+            animation: floatA 5.5s ease-in-out infinite;
+            animation-delay: 0.4s;
+        }
+
+        .hero-left h1 {
+            animation: floatB 7s ease-in-out infinite;
+            animation-delay: 0s;
+        }
+
+        .hero-desc {
+            animation: floatC 6s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .hero-cta-row {
+            animation: floatA 6.5s ease-in-out infinite;
+            animation-delay: 0.8s;
+        }
+
+        /* Cuando aún no se reveló, el float no debe activarse */
+        .reveal:not(.active) { animation: none !important; }
+
+        /* --- Morph tipográfico de "Tu marca" --- */
+        .morph-wrap {
+            display: inline-block;
+            min-width: 6.5ch;
+            position: relative;
+            vertical-align: baseline;
+            text-align: left;
+        }
+
+        .morph-text {
+            display: inline-block;
+            animation: morphCycle 12s infinite;
+            transform-origin: left center;
+            will-change: font-family, transform, opacity, filter;
+            /* Forzar gradient en cada fuente para evitar clipping issues */
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+                    background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        /*
+           Ciclo de 12s con 4 fuentes (3s cada una):
+           0-25%   → Plus Jakarta Sans (sans premium)
+           25-50%  → Instrument Serif italic (elegante editorial)
+           50-75%  → Caveat (handwritten / firma)
+           75-100% → JetBrains Mono (tech / código)
+           La opacidad mínima es 0.25 — nunca desaparece del todo
+        */
+        @keyframes morphCycle {
+            /* Fase 1: Plus Jakarta Sans (visible) */
+            0%, 18% {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: -2px;
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+            /* Transición fade out (parcial) */
+            22% {
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(-3px);
+            }
+
+            /* Fase 2: Instrument Serif Italic */
+            25% {
+                font-family: 'Instrument Serif', serif;
+                font-style: italic;
+                font-weight: 400;
+                letter-spacing: -1px;
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(3px);
+            }
+            28%, 43% {
+                font-family: 'Instrument Serif', serif;
+                font-style: italic;
+                font-weight: 400;
+                letter-spacing: -1px;
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+            47% {
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(-3px);
+            }
+
+            /* Fase 3: Caveat (handwritten) */
+            50% {
+                font-family: 'Caveat', cursive;
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: 0;
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(3px);
+            }
+            53%, 68% {
+                font-family: 'Caveat', cursive;
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: 0;
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+            72% {
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(-3px);
+            }
+
+            /* Fase 4: JetBrains Mono */
+            75% {
+                font-family: 'JetBrains Mono', monospace;
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: -2px;
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(3px);
+            }
+            78%, 93% {
+                font-family: 'JetBrains Mono', monospace;
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: -2px;
+                opacity: 1;
+                filter: blur(0);
+                transform: translateY(0);
+            }
+            97% {
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(-3px);
+            }
+
+            /* Vuelve a fase 1 */
+            100% {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: -2px;
+                opacity: 0.25;
+                filter: blur(5px);
+                transform: translateY(3px);
+            }
+        }
+
+        /* Respeto a usuarios que prefieren menos movimiento */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-left .badge,
+            .hero-left h1,
+            .hero-desc,
+            .hero-cta-row,
+            .morph-text {
+                animation: none !important;
+            }
+        }
+
+        /* === Capa 1: Foto de fondo === */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 12%;
+            filter: brightness(0.88) contrast(1.2) saturate(1.05);
+        }
+
+        .hero-bg-halo {
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(500px, 55vw, 800px);
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at center,
+                rgba(168, 85, 247, 0.35) 0%,
+                rgba(139, 92, 246, 0.18) 30%,
+                rgba(124, 58, 237, 0.08) 50%,
+                transparent 70%
+            );
+            filter: blur(50px);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            animation: haloPulse 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes haloPulse {
+            0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+            50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .hero-bg-grain {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.06;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* === Capa 2: Overlay oscuro para legibilidad del texto === */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            pointer-events: none;
+            background:
+                /* Fade lateral izquierdo y derecho (oscurece costados, deja centro despejado) */
+                linear-gradient(to right,
+                    rgba(5, 5, 7, 0.97) 0%,
+                    rgba(5, 5, 7, 0.85) 10%,
+                    rgba(5, 5, 7, 0.45) 22%,
+                    rgba(5, 5, 7, 0.1) 35%,
+                    transparent 45%,
+                    transparent 55%,
+                    rgba(5, 5, 7, 0.1) 65%,
+                    rgba(5, 5, 7, 0.45) 78%,
+                    rgba(5, 5, 7, 0.85) 90%,
+                    rgba(5, 5, 7, 0.97) 100%
+                ),
+                /* Fade vertical (top fade para nav, bottom fade para transición) */
+                linear-gradient(to bottom,
+                    rgba(5, 5, 7, 0.7) 0%,
+                    rgba(5, 5, 7, 0.2) 12%,
+                    transparent 25%,
+                    transparent 70%,
+                    rgba(5, 5, 7, 0.85) 100%
+                );
+        }
 
         .about-card-container { background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15) 0%, rgba(5, 5, 7, 0) 70%), var(--bg-surface); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 30px; padding: 60px; position: relative; overflow: hidden; box-shadow: 0 0 80px -20px rgba(124, 58, 237, 0.2); }
         .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
@@ -154,11 +522,148 @@
         .price-period { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
         .section-padding { padding: 100px 0; }
 
+        @media (max-width: 968px) {
+            .hero {
+                padding: 90px 0 30px;
+                min-height: 100vh;
+            }
+            .hero-content {
+                grid-template-columns: 1.05fr 0.95fr;
+                grid-template-rows: 1fr 1fr auto;
+                gap: 0 20px;
+                text-align: left;
+                padding: 0 20px;
+                min-height: calc(100vh - 120px);
+                align-items: stretch;
+            }
+
+            /* Columna IZQUIERDA, fila superior: HEADLINE */
+            .hero-left {
+                grid-column: 1;
+                grid-row: 1;
+                text-align: left;
+                align-self: end;
+                padding-bottom: 28px;
+            }
+
+            /* Columna IZQUIERDA, fila central: DESCRIPCIÓN */
+            .hero-right {
+                grid-column: 1;
+                grid-row: 2;
+                text-align: left;
+                align-self: start;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                padding-top: 12px;
+            }
+
+            /* CTAs ocupan ambas columnas abajo */
+            .hero-cta-row {
+                grid-column: 1 / -1;
+                grid-row: 3;
+                padding-top: 24px;
+                padding-bottom: 8px;
+                align-self: end;
+            }
+
+            .hero-left .badge {
+                margin-bottom: 14px;
+                font-size: 0.65rem;
+                padding: 4px 12px;
+            }
+
+            /* Headline ajustado para columna estrecha */
+            .hero-left h1 {
+                font-size: clamp(1.4rem, 5.8vw, 1.85rem);
+                letter-spacing: -1px;
+                line-height: 1.08;
+            }
+
+            /* En mobile usar texto fluido sin saltos forzados — el browser maneja */
+            .hero-left h1 br { display: none; }
+            .hero-left h1 .muted { display: inline; }
+
+            /* Descripción debajo del headline en la misma columna izquierda */
+            .hero-desc {
+                font-size: 0.72rem;
+                margin: 0;
+                max-width: 100%;
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.75);
+                text-align: left;
+                text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+            }
+
+            .hero-cta-row {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                align-items: center;
+            }
+
+            .hero-cta-row .btn {
+                width: 100%;
+                max-width: 360px;
+                padding: 14px 24px;
+                font-size: 0.92rem;
+            }
+
+            /* Foto: la cara visible en el lado derecho del frame */
+            .hero-bg-image {
+                object-position: 35% 22%;
+            }
+            .hero-bg-halo {
+                width: clamp(260px, 60vw, 360px);
+                top: 35%;
+                left: 55%;
+            }
+
+            /* Overlay mobile: oscurece la mitad IZQUIERDA (donde va el texto en columna)
+               y mantiene la mitad derecha más limpia (para que se vea la cara) */
+            .hero-overlay {
+                background:
+                    linear-gradient(to right,
+                        rgba(5, 5, 7, 0.85) 0%,
+                        rgba(5, 5, 7, 0.65) 30%,
+                        rgba(5, 5, 7, 0.25) 50%,
+                        transparent 65%,
+                        transparent 100%
+                    ),
+                    linear-gradient(to bottom,
+                        rgba(5, 5, 7, 0.6) 0%,
+                        transparent 18%,
+                        transparent 70%,
+                        rgba(5, 5, 7, 0.88) 90%,
+                        rgba(5, 5, 7, 0.98) 100%
+                    );
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 85px 0 24px;
+            }
+            .hero-content {
+                padding: 0 16px;
+                min-height: calc(100vh - 110px);
+                gap: 0 12px;
+            }
+            .hero-left h1 {
+                font-size: clamp(1.25rem, 6.5vw, 1.65rem);
+            }
+            .hero-desc {
+                font-size: 0.7rem;
+            }
+            .hero-bg-image {
+                object-position: 33% 22%;
+            }
+        }
+
         @media (max-width: 768px) {
             .container { padding: 0 32px; }
-            .hero-grid, .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-btns { justify-content: center; }
-            .hero-text h1 { font-size: 2.8rem; }
             .menu-toggle { display: block; }
             .nav-links { position: fixed; top: 0; right: -100%; height: 100vh; width: 100%; background: rgba(5, 5, 7, 0.98); flex-direction: column; justify-content: center; transition: 0.4s; }
             .nav-links.active { right: 0; }
@@ -166,7 +671,7 @@
             .portfolio-item { border-radius: 20px; }
             .stats-row { justify-content: center; gap: 20px; flex-wrap: wrap; }
             .about-card-container { padding: 40px 24px; }
-            .hero { padding-top: 150px; }
+
         }
 
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -236,9 +741,7 @@
 
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
-            .hero-grid, .about-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-btns { justify-content: center; }
-            .hero-text h1 { font-size: 2.8rem; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
             .proof-bar { justify-content: center; }
             .menu-toggle { display: block; }
             .nav-links { position: fixed; top: 0; right: -100%; height: 100vh; width: 100%; background: rgba(5, 5, 7, 0.98); flex-direction: column; justify-content: center; transition: 0.4s; }
@@ -246,7 +749,7 @@
             .portfolio-grid { grid-template-columns: 1fr; }
             .stats-row { justify-content: center; gap: 20px; flex-wrap: wrap; }
             .about-card-container, .testimonials { padding: 40px 24px; }
-            .hero { padding-top: 150px; }
+
             .lead-magnet { padding: 40px 24px; }
             .lead-magnet h2 { font-size: 2rem; }
             .lead-magnet form { flex-direction: column; }
@@ -285,24 +788,41 @@
         </div>
     </nav>
 
-    <header class="hero container">
-        <div class="hero-grid">
-            <div class="hero-text">
-                <span class="badge reveal reveal-up">PARTNER CREATIVO 360°</span>
-                <h1 class="reveal reveal-left delay-1">Tu autoridad <br> no se explica, <br><span class="text-gradient"> se proyecta.</span></h1>
-                <p class="reveal reveal-left delay-2">Dominamos el lenguaje: contenido audiovisual para tu ecosistema digital. Coherencia multimedia para aquellos que no aceptan menos que la excelencia.</p>
-                <div class="hero-btns reveal reveal-up delay-3">
-                    <a href="#portfolio" class="btn btn-primary">Ver Portafolio</a>
+    <header class="hero">
+        <div class="hero-bg">
+            <img src="hero.jpeg" alt="Gian Paol Muñoz - Partner Creativo Audiovisual" class="hero-bg-image" loading="eager">
+            <div class="hero-bg-halo"></div>
+            <div class="hero-bg-grain"></div>
+        </div>
 
-                    <button class="btn btn-secondary" onclick="window.open('https://wa.me/573209263077?text=Vi%20tu%20portafolio%20y%20me%20interesa%20trabajar%20contigo','_blank'); closeMenu()">Solicita tu auditoria visual</button>
-                </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <div class="hero-left">
+                <span class="badge reveal reveal-up">PARTNER CREATIVO 360°</span>
+                <h1 class="reveal reveal-left delay-1">
+                    Hay miles<br>
+                    de<br>
+                    realizadores.<br>
+                    <span class="morph-wrap">
+                        <span class="morph-text text-gradient" data-text="Tu marca">Tu marca</span>
+                    </span><br>
+                    <span class="muted">necesita un</span><br>
+                    <span class="muted">partner.</span>
+                </h1>
             </div>
-            
-            <div class="phone-container reveal reveal-right reveal-scale delay-2" data-speed="0.05">
-                <div class="phone-mockup">
-                    <img src="https://youtube.com/shorts/sS6-BWuXkik?si=JKyywPKOjOsUe_j8" alt="Demo Video Vertical" style="width:100%; height:100%; object-fit:cover; opacity: 0.8;">
-                    <i class="fas fa-play-circle" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:4rem; color:white; opacity:0.9;"></i>
-                </div>
+
+            <div class="hero-right reveal reveal-right delay-3">
+                <p class="hero-desc">
+                    Construyo ecosistemas audiovisuales premium para fundadores y marcas que entendieron que su imagen percibida no puede ir detrás de su valor real.
+                </p>
+            </div>
+
+            <div class="hero-cta-row reveal reveal-up delay-3">
+                <button class="btn btn-primary" onclick="window.open('https://wa.me/573209263077?text=Quiero%20agendar%20mi%20llamada%20estrat%C3%A9gica%20de%2015%20min','_blank'); closeMenu()">
+                    Agendar llamada estratégica
+                </button>
+                <a href="#portfolio" class="btn btn-secondary">Ver Portafolio</a>
             </div>
         </div>
     </header>
@@ -328,7 +848,7 @@
                         <div class="stats-row">
                             <div class="stat-item reveal reveal-up delay-1"><h3 class="counter" data-target="50">0</h3><p>Proyectos Fin.</p></div>
                             <div class="stat-item reveal reveal-up delay-2"><h3 class="counter" data-target="4">0</h3><p>Años Exp.</p></div>
-                            <div class="stat-item reveal reveal-up delay-3"><h3 class="counter" data-target="90">0</h3><p>% Satisfacción</p></div>
+                            <div class="stat-item reveal reveal-up delay-3"><h3 class="counter" data-target="90" data-suffix="%">0</h3><p>% Satisfacción</p></div>
                         </div>
                     </article>
                     <div class="about-visual reveal reveal-right delay-2">
@@ -356,8 +876,6 @@
                 <button class="filter-btn" data-filter="photo">Fotografía</button>
             </div>
 
-
-         
             <div class="portfolio-grid">
                 <div class="portfolio-item vertical reveal reveal-up delay-1" data-category="video" data-src="https://vimeo.com/1158062751?fl=pl&fe=sh" data-type="video">
 
@@ -369,8 +887,32 @@
                 </div>
 
 
+<!-- VIDEO 1: YouTube Shorts -->
+<div class="portfolio-item vertical reveal reveal-up delay-1" 
+     data-category="video" 
+     data-src="https://www.youtube.com/shorts/sS6-BWuXkik" 
+     data-type="video">
+    
+    <div class="result-badge">+250K views</div>
+    <div class="item-type"><i class="fas fa-play"></i></div>
+    
+    <!-- Embed de YouTube -->
+    <iframe 
+        src="https://www.youtube.com/embed/sS6-BWuXkik?autoplay=0&mute=1&loop=1&controls=0&modestbranding=1&playsinline=1" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media"
+        style="width:100%; height:100%; border:none; pointer-events: none;"
+        loading="lazy"
+    ></iframe>
+    
+    <div class="portfolio-overlay">
+        <h3>Julian Bodybuilder</h3>
+        <p>Recap Classic Physique 2024</p>
+        <small>📈 Resultado: +250K views</small>
+    </div>
+</div>
 
-             <!-- VIDEO 2: Vimeo -->
+<!-- VIDEO 2: Vimeo -->
 <div class="portfolio-item vertical reveal reveal-up delay-2" 
      data-category="video" 
      data-src="https://vimeo.com/1158062751" 
@@ -393,177 +935,198 @@
     </div>
 </div>
 
-
-<!-- ============================================
-     PORTFOLIO GRID - OPTIMIZADO
-     Estrategia:
-     - loading="lazy" en TODAS
-     - decoding="async" para no bloquear el hilo principal
-     - Se elimina la clase "reveal" de imágenes (conflicto con lazy)
-     - width/height para evitar CLS (ajusta según tus dimensiones reales)
-     - alt descriptivos para SEO
-============================================ -->
-
-<!-- GRUPO R: Retratos -->
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r4.webp" data-type="image">
-    <img src="fotos/r4.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r5.webp" data-type="image">
-    <img src="fotos/r5.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r6.webp" data-type="image">
-    <img src="fotos/r6.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r7.webp" data-type="image">
-    <img src="fotos/r7.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r1.webp" data-type="image">
-    <img src="fotos/r1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r2.webp" data-type="image">
-    <img src="fotos/r2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r3.webp" data-type="image">
-    <img src="fotos/r3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/r8.webp" data-type="image">
-    <img src="fotos/r8.webp" loading="lazy" decoding="async" width="600" height="900" alt="Retrato estudio">
-</div>
-
-<!-- GRUPO BODA: Cristopher & Patricia 2024 -->
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda.webp" data-type="image">
-    <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda.webp" loading="lazy" decoding="async" width="600" height="900" alt="Fotografía de boda Cristopher y Patricia 2024">
+<!-- VIDEO 3: Video LOCAL (.mp4) -->
+<div class="portfolio-item vertical reveal reveal-up delay-3" 
+     data-category="video" 
+     data-src="videos/mi-video.mp4" 
+     data-type="video">
+    
+    <div class="item-type"><i class="fas fa-play"></i></div>
+    
+    <!-- Video HTML5 -->
+    <video muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
+        <source src="videos/mi-video.mp4" type="video/mp4">
+    </video>
+    
     <div class="portfolio-overlay">
-        <h3>Boda Cristopher & Patricia</h3>
-        <p>2024</p>
+        <h3>Video Local</h3>
+        <p>Almacenado en tu servidor</p>
     </div>
 </div>
 
-             
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda1.webp" data-type="image">
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r4.jpg" data-type="image">
+    <img src="fotos/r4.jpg" alt="">
+</div>
+
+
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r5.jpg" data-type="image">
+    <img src="fotos/r5.jpg" alt="">
+</div>
+
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/r6.jpg" data-type="image">
+    <img src="fotos/r6.jpg" alt="">
+</div>
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r7.jpg" data-type="image">
+    <img src="fotos/r7.jpg" alt="">
+</div>
+
+
+
+                <div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda.jpg" data-type="image">
+                    <div class="item-type"><i class="fas fa-camera"></i></div>
+                    <img src="fotos/Boda.jpg" alt="Fotografía de producto de lujo Reloj">
+                    <div class="portfolio-overlay"><h3>Boda Cristopher & Patricia</h3><p>2024</p></div>
+                </div>
+
+
+
+               <div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda1.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - ceremonia">
+    <img src="fotos/Boda1.jpg" alt="Boda 1">
 </div>
 
-               <!--
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/boda3.webp" data-type="image">
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda2.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/boda3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - momentos">
+    <img src="fotos/Boda2.jpg" alt="Boda 2">
 </div>
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda4_11com.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Boda3.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda4_11com.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - novios">
-</div> 
+    <img src="fotos/Boda3.jpg" alt="Boda 3">
+</div>
 
-
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Boda6_11com.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Boda4.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Boda6_11com.webp" loading="lazy" decoding="async" width="600" height="900" alt="Boda Cristopher y Patricia - recepción">
-</div> 
+    <img src="fotos/Boda4.jpg" alt="Boda 4">
+</div>
 
- -->
-           
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Isa1_11.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Boda5.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Isa1_11.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica Isa">
+    <img src="fotos/Boda5.jpg" alt="Boda 5">
 </div>
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Isa2_11.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Boda6.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Isa2_11.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica Isa">
+    <img src="fotos/Boda6.jpg" alt="Boda 6">
 </div>
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/Isa3_11.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/Isa1.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/Isa3_11.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica Isa">
-</div>  
+    <img src="fotos/Isa1.jpg" alt="Isa 1">
+</div>
 
-
-             
-<!-- GRUPO P -->
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p5.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/Isa2.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p5.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
+    <img src="fotos/Isa2.jpg" alt="Isa 2">
 </div>
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p6.webp" data-type="image">
-    <img src="fotos/p6.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p7.webp" data-type="image">
-    <img src="fotos/p7.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p8.webp" data-type="image">
-    <img src="fotos/p8.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p9.webp" data-type="image">
-    <img src="fotos/p9.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión fotográfica vertical">
-</div>
-
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p1.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/Isa3.jpg" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p1.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
+    <img src="fotos/Isa3.jpg" alt="Isa 3">
 </div>
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p2.webp" data-type="image">
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p5.png" data-type="image">
     <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
+    <img src="fotos/p5.png" alt="p5">
 </div>
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p3.webp" data-type="image">
-    <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p3.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p6.jpg" data-type="image">
+    <img src="fotos/p6.jpg" alt="">
 </div>
 
-<div class="portfolio-item vertical" data-category="photo" data-src="fotos/p4.webp" data-type="image">
-    <div class="item-type"><i class="fas fa-camera"></i></div>
-    <img src="fotos/p4.webp" loading="lazy" decoding="async" width="600" height="900" alt="Producción fotográfica">
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p7.jpg" data-type="image">
+    <img src="fotos/p7.jpg" alt="">
 </div>
 
-<!-- GRUPO G: ya tenían lazy, se mantienen + se agrega decoding -->
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p8.jpg" data-type="image">
+    <img src="fotos/p8.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p9.jpg" data-type="image">
+    <img src="fotos/p9.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/r1.jpg" data-type="image">
+    <img src="fotos/r1.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r2.jpg" data-type="image">
+    <img src="fotos/r2.jpg" alt="">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/r3.jpg" data-type="image">
+    <img src="fotos/r3.jpg" alt="">
+</div>
+
+
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/r8.jpg" data-type="image">
+    <img src="fotos/r8.jpg" alt="">
+</div>
+
+
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g1_11.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g1.jpeg" loading="lazy" alt="">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g2.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g2.jpeg" loading="lazy" alt="">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g3_11.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g3.jpeg" loading="lazy" alt="">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g4.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g4.jpeg" loading="lazy" alt="">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g5.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g5.jpeg" loading="lazy" alt="">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g6.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g6.jpeg" loading="lazy" alt="">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g7.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g7.jpeg" loading="lazy" alt="">
 </div>
 
 <div class="portfolio-item vertical" data-category="photo">
-    <img src="fotos/g8.webp" loading="lazy" decoding="async" width="600" height="900" alt="Sesión Gian Visuals">
+    <img src="fotos/g8.jpeg" loading="lazy" alt="">
+</div>
+
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p1.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p1.png" alt="p1">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-3" data-category="photo" data-src="fotos/p2.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p2.png" alt="p2">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-1" data-category="photo" data-src="fotos/p3.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p3.png" alt="p3">
+</div>
+
+<div class="portfolio-item vertical reveal reveal-up delay-2" data-category="photo" data-src="fotos/p4.png" data-type="image">
+    <div class="item-type"><i class="fas fa-camera"></i></div>
+    <img src="fotos/p4.png" alt="p4">
 </div>
 
 
@@ -606,7 +1169,32 @@
             </div>
         </section>
 
-    
+        <section id="precios" class="section-padding container">
+            <div class="section-header reveal reveal-up">
+                <h2>Planes de Inversión</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="glass-card reveal reveal-up delay-1">
+                    <h3>Starter</h3>
+                    <span class="price-tag">$500 <span class="price-period">/mes</span></span>
+                    <p style="color:var(--text-muted)">Ideal para marcas emergentes.</p>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
+                </div>
+                <div class="glass-card reveal reveal-up delay-2" style="border-color: #A855F7;">
+                    <h3>Growth</h3>
+                    <span class="price-tag">$1,500 <span class="price-period">/mes</span></span>
+                    <p style="color:var(--text-muted)">Escalado agresivo de contenido.</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
+                </div>
+                <div class="glass-card reveal reveal-up delay-3">
+                    <h3>Enterprise</h3>
+                    <span class="price-tag">Custom</span>
+                    <p style="color:var(--text-muted)">Soluciones para agencias y productoras.</p>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Contactar</button>
+                </div>
+            </div>
+
+
 
  <!-- NUEVO: Lead Magnet -->
         <section class="container">
@@ -726,6 +1314,15 @@
 
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
+
+            // Nav background al hacer scroll
+            const navEl = document.querySelector('nav');
+            if (scrolled > 60) {
+                navEl.classList.add('scrolled');
+            } else {
+                navEl.classList.remove('scrolled');
+            }
+
             const parallaxElements = document.querySelectorAll('[data-speed]');
             parallaxElements.forEach(el => {
                 const speed = el.getAttribute('data-speed');
@@ -806,15 +1403,16 @@
             if(entries[0].isIntersecting && !started) {
                 document.querySelectorAll('.counter').forEach(counter => {
                     const target = +counter.dataset.target;
+                    const suffix = counter.dataset.suffix || '+';
                     let count = 0;
                     const increment = target / 30;
                     const update = () => {
                         if(count < target) {
                             count += increment;
-                            counter.innerText = Math.ceil(count) + (target === 98 ? '%' : '+');
+                            counter.innerText = Math.ceil(count) + suffix;
                             setTimeout(update, 40);
                         } else {
-                            counter.innerText = target + (target === 98 ? '%' : '+');
+                            counter.innerText = target + suffix;
                         }
                     };
                     update();
