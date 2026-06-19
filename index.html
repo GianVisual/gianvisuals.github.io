@@ -1,1652 +1,826 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Gian Visuals | Partner creativo </title>
-    <meta name="description" content="Edición de video vertical high-ticket. Especialista en retención y narrativa visual para marcas premium en Reels y TikTok. Calidad de cine para tu contenido.">
-    <meta name="keywords" content="editor de video vertical, edición de reels, post-producción tiktok, video high-ticket, gian visuals, visual storyteller">
-    <link rel="canonical" href="https://gianvisuals.com/">
-
-    <meta property="og:title" content="Gian Visuals | Producción de Video Vertical Premium">
-    <meta property="og:description" content="Transformo tu material en piezas de alto impacto diseñadas para detener el scroll.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gianvisuals.com/">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Caveat:wght@700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-
-
-    <style>
-        /* MANTENIDO: TU SISTEMA DE DISEÑO ORIGINAL */
-        :root {
-            --bg-body: #050507;
-            --bg-surface: #0E1016;
-            --bg-card: rgba(20, 22, 30, 0.6);
-            --primary-gradient: linear-gradient(90deg, #6366F1 0%, #A855F7 50%, #EC4899 100%);
-            --primary-glow: rgba(168, 85, 247, 0.4);
-            --border-light: rgba(255, 255, 255, 0.08);
-            --text-main: #FFFFFF;
-            --text-muted: #94A3B8; 
-            --radius-md: 12px;
-            --radius-lg: 24px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .ambient-light {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh; pointer-events: none; z-index: -1;
-            background: radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
-        }
-
-        .parallax-bg {
-            position: absolute; width: 400px; height: 400px; background: var(--primary-glow);
-            filter: blur(120px); border-radius: 50%; z-index: -1; opacity: 0.3; pointer-events: none;
-        }
-
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .text-gradient { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .badge { display: inline-block; padding: 4px 12px; background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; }
-
-        .reveal { opacity: 0; filter: blur(10px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform, opacity; }
-        .reveal-up { transform: translateY(60px); }
-        .reveal-left { transform: translateX(-80px); }
-        .reveal-right { transform: translateX(80px); }
-        .reveal-scale { transform: scale(0.8); }
-        .reveal.active { opacity: 1; filter: blur(0); transform: translate(0,0) scale(1); }
-        .delay-1 { transition-delay: 0.1s; }
-        .delay-2 { transition-delay: 0.2s; }
-        .delay-3 { transition-delay: 0.3s; }
-
-        .btn { display: inline-block; padding: 12px 32px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; transition: var(--transition); cursor: pointer; border: 1px solid transparent; text-align: center; }
-        .btn-primary { background: var(--primary-gradient); color: #fff; box-shadow: 0 4px 20px var(--primary-glow); position: relative; z-index: 1; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--primary-glow); filter: brightness(1.1); }
-        .btn-secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border-light); }
-        .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-
-        .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start; }
-        .section-header { text-align: center; margin-bottom: 60px; }
-        .section-header h2 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
-        .section-header p { color: var(--text-muted); font-size: 1.1rem; }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            z-index: 1000;
-            border-bottom: none;
-            padding: 24px 0;
-            transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(5, 5, 7, 0.85);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: 800; z-index: 1001; }
-        .nav-links { display: flex; gap: 32px; align-items: center; }
-        .nav-links a { color: var(--text-muted); font-weight: 500; font-size: 0.95rem; transition: 0.2s; }
-        .nav-links a:hover { color: #fff; }
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; z-index: 1001; }
-
-        /* === Capa 3: Contenido textual (encima de todo) === */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            padding: 130px 0 70px;
-            display: flex;
-            align-items: stretch;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 5;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 80px;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr auto;
-            gap: 40px 80px;
-        }
-
-        .hero-left {
-            grid-column: 1;
-            grid-row: 1;
-            text-align: left;
-            align-self: center;
-        }
-
-        .hero-left .badge { margin-bottom: 20px; }
-
-        .hero-left h1 {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: clamp(2rem, 3.4vw, 3rem);
-            line-height: 1.02;
-            font-weight: 700;
-            letter-spacing: -2.5px;
-            margin: 0;
-            color: #FFFFFF;
-            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .hero-left h1 .muted {
-            color: rgba(255, 255, 255, 0.3);
-            font-weight: 600;
-            letter-spacing: -2px;
-        }
-
-        .hero-right {
-            grid-column: 2;
-            grid-row: 1;
-            text-align: right;
-            align-self: center;
-        }
-
-        .hero-desc {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0 0 0 auto;
-            line-height: 1.65;
-            max-width: 300px;
-            font-weight: 400;
-            text-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
-        }
-
-        .hero-cta-row {
-            grid-column: 1 / -1;
-            grid-row: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-            padding-top: 30px;
-        }
-
-        .hero-cta-row .btn {
-            padding: 14px 28px;
-            font-size: 0.95rem;
-        }
-
-        /* ============================================
-           ANIMACIONES DEL HERO
-           ============================================ */
-
-        @keyframes floatA { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-        @keyframes floatB { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-        @keyframes floatC { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-
-        .hero-left .badge { animation: floatA 5.5s ease-in-out infinite; animation-delay: 0.4s; }
-        .hero-left h1 { animation: floatB 7s ease-in-out infinite; animation-delay: 0s; }
-        .hero-desc { animation: floatC 6s ease-in-out infinite; animation-delay: 1s; }
-        .hero-cta-row { animation: floatA 6.5s ease-in-out infinite; animation-delay: 0.8s; }
-
-        .reveal:not(.active) { animation: none !important; }
-
-        .morph-wrap {
-            display: inline-block;
-            min-width: 6.5ch;
-            position: relative;
-            vertical-align: baseline;
-            text-align: left;
-        }
-
-        .morph-text {
-            display: inline-block;
-            animation: morphCycle 12s infinite;
-            transform-origin: left center;
-            will-change: font-family, transform, opacity, filter;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-                    background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-        }
-
-        @keyframes morphCycle {
-            0%, 18% { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 1; filter: blur(0); transform: translateY(0); }
-            22% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
-            25% { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -1px; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
-            28%, 43% { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; letter-spacing: -1px; opacity: 1; filter: blur(0); transform: translateY(0); }
-            47% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
-            50% { font-family: 'Caveat', cursive; font-style: normal; font-weight: 700; letter-spacing: 0; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
-            53%, 68% { font-family: 'Caveat', cursive; font-style: normal; font-weight: 700; letter-spacing: 0; opacity: 1; filter: blur(0); transform: translateY(0); }
-            72% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
-            75% { font-family: 'JetBrains Mono', monospace; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
-            78%, 93% { font-family: 'JetBrains Mono', monospace; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 1; filter: blur(0); transform: translateY(0); }
-            97% { opacity: 0.25; filter: blur(5px); transform: translateY(-3px); }
-            100% { font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal; font-weight: 700; letter-spacing: -2px; opacity: 0.25; filter: blur(5px); transform: translateY(3px); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .hero-left .badge, .hero-left h1, .hero-desc, .hero-cta-row, .morph-text { animation: none !important; }
-        }
-
-        .hero-bg { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
-        .hero-bg-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 12%; filter: brightness(0.88) contrast(1.2) saturate(1.05); }
-        .hero-bg-halo {
-            position: absolute; top: 38%; left: 50%; transform: translate(-50%, -50%);
-            width: clamp(500px, 55vw, 800px); aspect-ratio: 1 / 1; border-radius: 50%;
-            background: radial-gradient(circle at center, rgba(168, 85, 247, 0.35) 0%, rgba(139, 92, 246, 0.18) 30%, rgba(124, 58, 237, 0.08) 50%, transparent 70%);
-            filter: blur(50px); mix-blend-mode: screen; pointer-events: none;
-            animation: haloPulse 6s ease-in-out infinite; z-index: 2;
-        }
-        @keyframes haloPulse { 0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); } }
-
-        .hero-bg-grain {
-            position: absolute; inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-            opacity: 0.06; mix-blend-mode: overlay; pointer-events: none; z-index: 3;
-        }
-
-        .hero-overlay {
-            position: absolute; inset: 0; z-index: 4; pointer-events: none;
-            background:
-                linear-gradient(to right,
-                    rgba(5, 5, 7, 0.97) 0%, rgba(5, 5, 7, 0.85) 10%, rgba(5, 5, 7, 0.45) 22%, rgba(5, 5, 7, 0.1) 35%,
-                    transparent 45%, transparent 55%,
-                    rgba(5, 5, 7, 0.1) 65%, rgba(5, 5, 7, 0.45) 78%, rgba(5, 5, 7, 0.85) 90%, rgba(5, 5, 7, 0.97) 100%),
-                linear-gradient(to bottom,
-                    rgba(5, 5, 7, 0.7) 0%, rgba(5, 5, 7, 0.2) 12%, transparent 25%, transparent 70%, rgba(5, 5, 7, 0.85) 100%);
-        }
-
-        .about-card-container { background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15) 0%, rgba(5, 5, 7, 0) 70%), var(--bg-surface); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 30px; padding: 60px; position: relative; overflow: hidden; box-shadow: 0 0 80px -20px rgba(124, 58, 237, 0.2); }
-        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px; align-items: center; }
-        .stats-row { display: flex; gap: 50px; margin-top: 40px; border-top: 1px solid var(--border-light); padding-top: 30px; }
-        .stat-item h3 { font-size: 2.5rem; font-weight: 800; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        .id-card-wrapper { perspective: 1000px; display: flex; justify-content: center; }
-        .id-card { width: 260px; height: 380px; background: linear-gradient(145deg, #1a1c29, #0f1016); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 20px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); animation: floatCard 6s ease-in-out infinite; transform-style: preserve-3d; }
-        .id-photo { width: 170px; height: 170px; border-radius: 50%; margin: 20px auto 20px; border: 4px solid #6366F1; object-fit: cover; object-position: top center; box-shadow: 0 20px 50px rgba(99,102,241,0.35); }
-
-        @keyframes floatCard { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(2deg); } }
-
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-        .glass-card { background: var(--bg-card); border: 1px solid var(--border-light); padding: 40px; border-radius: var(--radius-lg); transition: var(--transition); }
-        .glass-card:hover { border-color: rgba(168, 85, 247, 0.5); transform: translateY(-5px); }
-        .price-tag { font-size: 3rem; font-weight: 800; display: block; margin: 20px 0; }
-        .price-period { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
-        .section-padding { padding: 100px 0; }
-
-        @media (max-width: 968px) {
-            .hero { padding: 90px 0 30px; min-height: 100vh; }
-            .hero-content { grid-template-columns: 1.05fr 0.95fr; grid-template-rows: 1fr 1fr auto; gap: 0 20px; text-align: left; padding: 0 20px; min-height: calc(100vh - 120px); align-items: stretch; }
-            .hero-left { grid-column: 1; grid-row: 1; text-align: left; align-self: end; padding-bottom: 28px; }
-            .hero-right { grid-column: 1; grid-row: 2; text-align: left; align-self: start; padding: 0; margin: 0; width: 100%; padding-top: 12px; }
-            .hero-cta-row { grid-column: 1 / -1; grid-row: 3; padding-top: 24px; padding-bottom: 8px; align-self: end; }
-            .hero-left .badge { margin-bottom: 14px; font-size: 0.65rem; padding: 4px 12px; }
-            .hero-left h1 { font-size: clamp(1.4rem, 5.8vw, 1.85rem); letter-spacing: -1px; line-height: 1.08; }
-            .hero-left h1 br { display: none; }
-            .hero-left h1 .muted { display: inline; }
-            .hero-desc { font-size: 0.72rem; margin: 0; max-width: 100%; line-height: 1.5; color: rgba(255, 255, 255, 0.75); text-align: left; text-shadow: 0 2px 12px rgba(0,0,0,0.9); }
-            .hero-cta-row { flex-direction: column; gap: 10px; width: 100%; align-items: center; }
-            .hero-cta-row .btn { width: 100%; max-width: 360px; padding: 14px 24px; font-size: 0.92rem; }
-            .hero-bg-image { object-position: 35% 22%; }
-            .hero-bg-halo { width: clamp(260px, 60vw, 360px); top: 35%; left: 55%; }
-            .hero-overlay {
-                background:
-                    linear-gradient(to right, rgba(5, 5, 7, 0.85) 0%, rgba(5, 5, 7, 0.65) 30%, rgba(5, 5, 7, 0.25) 50%, transparent 65%, transparent 100%),
-                    linear-gradient(to bottom, rgba(5, 5, 7, 0.6) 0%, transparent 18%, transparent 70%, rgba(5, 5, 7, 0.88) 90%, rgba(5, 5, 7, 0.98) 100%);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero { padding: 85px 0 24px; }
-            .hero-content { padding: 0 16px; min-height: calc(100vh - 110px); gap: 0 12px; }
-            .hero-left h1 { font-size: clamp(1.25rem, 6.5vw, 1.65rem); }
-            .hero-desc { font-size: 0.7rem; }
-            .hero-bg-image { object-position: 33% 22%; }
-        }
-
-        @media (max-width: 768px) {
-            .container { padding: 0 32px; }
-            .about-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-btns { justify-content: center; }
-            .menu-toggle { display: block; }
-            .nav-links { position: fixed; top: 0; right: -100%; height: 100vh; width: 100%; background: rgba(5, 5, 7, 0.98); flex-direction: column; justify-content: center; transition: 0.4s; }
-            .nav-links.active { right: 0; }
-            .stats-row { justify-content: center; gap: 20px; flex-wrap: wrap; }
-            .about-card-container { padding: 40px 24px; }
-        }
-
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .process-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 40px; text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
-        .process-card:hover { transform: translateY(-6px); border-color: rgba(168, 85, 247, 0.4); }
-        .process-icon { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; box-shadow: 0 10px 30px var(--primary-glow); }
-        .id-name { display: block; margin-top: 10px; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.15em; }
-        .id-role { display: block; margin-top: 6px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--text-muted); }
-
-        #particles-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: 0.6; }
-
-        .lead-magnet { background: var(--primary-gradient); padding: 60px; border-radius: 30px; text-align: center; margin: 80px 0; position: relative; overflow: hidden; }
-        .lead-magnet::before { content: ''; position: absolute; inset: -50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); animation: rotate 20s linear infinite; }
-        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .lead-magnet h2 { font-size: 2.5rem; margin-bottom: 20px; position: relative; z-index: 1; }
-        .lead-magnet p { font-size: 1.2rem; margin-bottom: 30px; position: relative; z-index: 1; }
-        .lead-magnet form { display: flex; gap: 15px; max-width: 600px; margin: 0 auto; position: relative; z-index: 1; flex-wrap: wrap; justify-content: center; }
-        .lead-magnet input { flex: 1; min-width: 200px; padding: 15px 20px; border-radius: 50px; border: none; font-size: 1rem; }
-        .lead-magnet button { padding: 15px 40px; background: #000; color: #fff; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: var(--transition); }
-        .lead-magnet button:hover { transform: scale(1.05); background: #1a1a1a; }
-        .lead-magnet small { display: block; margin-top: 15px; font-size: 0.85rem; opacity: 0.9; position: relative; z-index: 1; }
-
-        .faq-section { margin: 80px 0; }
-        .faq-item { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 25px; margin-bottom: 20px; cursor: pointer; transition: var(--transition); }
-        .faq-item:hover { border-color: rgba(168, 85, 247, 0.4); }
-        .faq-question { font-size: 1.2rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { margin-top: 15px; color: var(--text-muted); line-height: 1.7; display: none; }
-        .faq-item.active .faq-answer { display: block; }
-        .faq-icon { transition: transform 0.3s; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
-
-        .urgency-badge { display: inline-block; background: #ef4444; color: white; padding: 6px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-bottom: 15px; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
-
-        @media (max-width: 768px) {
-            .lead-magnet { padding: 40px 24px; }
-            .lead-magnet h2 { font-size: 2rem; }
-            .lead-magnet form { flex-direction: column; }
-        }
-
-        /* ============================================================
-           NUEVO PORTAFOLIO (GV) — CARRUSEL + LIGHTBOX + ZOOM ON CURSOR
-           Adaptado a la paleta de Gian Visuals
-        ============================================================ */
-        .gv-strip-wrap {
-            overflow: hidden;
-            position: relative;
-            margin-bottom: 24px;
-            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-        }
-        .gv-strip-wrap.cursor-active { cursor: none; }
-        .gv-strip-wrap.cursor-active .gv-card { cursor: none; }
-
-        .gv-strip { display: flex; width: max-content; padding: 18px 0; will-change: transform; }
-
-        .gv-card {
-            flex: 0 0 220px;
-            margin-right: 18px;
-            height: 293px;
-            border-radius: var(--radius-md);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            background: var(--gv-bg);
-            border: 1px solid var(--border-light);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-            text-align: left;
-            font-family: inherit;
-            color: inherit;
-            padding: 0;
-        }
-        .gv-card:hover { transform: translateY(-8px); border-color: rgba(168, 85, 247, 0.5); }
-        .gv-card.is-pulsing { animation: gvPulse 0.55s ease; }
-        @keyframes gvPulse {
-            0% { transform: translateY(-8px) scale(1); }
-            50% { transform: translateY(-8px) scale(0.96); border-color: #A855F7; box-shadow: 0 0 40px rgba(168, 85, 247, 0.4); }
-            100% { transform: translateY(-8px) scale(1); }
-        }
-
-        .gv-card-img {
-            position: absolute; inset: 0;
-            background-size: cover; background-position: center;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .gv-card:hover .gv-card-img { transform: scale(1.06); }
-
-        .gv-card-vignette {
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(5,5,7,0.95) 0%, rgba(5,5,7,0.55) 35%, rgba(5,5,7,0.15) 65%, transparent 100%);
-            pointer-events: none;
-        }
-        .gv-card-num {
-            position: absolute; top: 18px; left: 20px;
-            font-size: 10px; letter-spacing: 2px;
-            color: var(--gv-accent); font-weight: 700;
-            z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-        }
-        .gv-card-content { position: absolute; left: 20px; right: 20px; bottom: 20px; z-index: 2; color: #fff; }
-        .gv-card-title {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 1.45rem; font-weight: 700;
-            line-height: 1.1; letter-spacing: -0.5px;
-            margin: 0 0 8px;
-        }
-        .gv-card-meta {
-            font-size: 0.7rem; letter-spacing: 1.3px;
-            color: rgba(255, 255, 255, 0.75);
-            display: flex; align-items: center; gap: 6px;
-            text-transform: uppercase; font-weight: 600;
-        }
-        .gv-card-meta i { font-size: 0.85rem; }
-
-        /* Paletas (jewel tones que arrancan bien con tu morado-rosa) */
-        .gv-c-reels    { --gv-bg: #2D2553; --gv-accent: #d8b4fe; }
-        .gv-c-bodas    { --gv-bg: #4A1B2C; --gv-accent: #fbcfe8; }
-        .gv-c-retratos { --gv-bg: #2A2520; --gv-accent: #e9d5ff; }
-        .gv-c-producto { --gv-bg: #1A2750; --gv-accent: #c4b5fd; }
-        .gv-c-lifestyle{ --gv-bg: #29234A; --gv-accent: #ddd6fe; }
-
-        /* --- Cursor direccional --- */
-        .gv-cursor {
-            position: fixed; top: 0; left: 0;
-            width: 0; height: 0;
-            pointer-events: none;
-            z-index: 9998;
-            will-change: transform;
-        }
-        .gv-cursor-inner {
-            width: 76px; height: 76px;
-            border-radius: 50%;
-            background: #fff; color: #050507;
-            display: flex; align-items: center; justify-content: center;
-            transform: translate(-50%, -50%) scale(0.3);
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease;
-            box-shadow: 0 4px 30px rgba(168, 85, 247, 0.3);
-        }
-        .gv-cursor.visible .gv-cursor-inner { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        .gv-cursor.center .gv-cursor-inner {
-            background: var(--primary-gradient);
-            color: #fff;
-        }
-        .gv-cursor-arrow { font-size: 1.5rem; transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
-        .gv-cursor.left .gv-cursor-arrow { transform: rotate(180deg); }
-        .gv-cursor.center .gv-cursor-arrow { transform: scale(0.35); }
-
-        .gv-hint {
-            display: flex; align-items: center; gap: 8px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin: 0 0 28px 4px; letter-spacing: 0.3px;
-        }
-        .gv-hint i { font-size: 0.95rem; color: #A855F7; }
-
-        /* --- Panel expandido con las 3 piezas top --- */
-        .gv-expanded {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            transition: opacity 0.3s ease;
-        }
-        .gv-exp-head {
-            display: flex; justify-content: space-between; align-items: flex-end;
-            margin-bottom: 26px; gap: 20px; flex-wrap: wrap;
-        }
-        .gv-exp-title {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 1.75rem; font-weight: 800;
-            margin: 0 0 6px; letter-spacing: -0.5px; line-height: 1.1;
-            color: #fff;
-        }
-        .gv-exp-sub { font-size: 0.9rem; color: var(--text-muted); letter-spacing: 0.3px; }
-
-        .gv-see-all {
-            display: inline-flex; align-items: center; gap: 8px;
-        }
-        .gv-see-all i { font-size: 0.85rem; transition: transform 0.3s ease; }
-        .gv-see-all:hover i { transform: translateX(3px); }
-
-        .gv-pieces {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
-        }
-        .gv-piece {
-            aspect-ratio: 4 / 5;
-            position: relative; border-radius: var(--radius-md);
-            overflow: hidden; cursor: pointer;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-light);
-        }
-        .gv-piece-img {
-            position: absolute; inset: 0;
-            background-size: cover; background-position: center;
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .gv-piece:hover .gv-piece-img { transform: scale(1.06); }
-        .gv-piece-num {
-            position: absolute; top: 12px; left: 14px;
-            font-size: 0.65rem; font-weight: 700; letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.85);
-            z-index: 2; text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-        }
-        .gv-piece-play {
-            position: absolute; top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 52px; height: 52px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.1rem;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 20px var(--primary-glow);
-        }
-        .gv-piece.is-video .gv-piece-play { opacity: 1; }
-        .gv-piece.is-video:hover .gv-piece-play { transform: translate(-50%, -50%) scale(1.08); }
-        .gv-piece-overlay {
-            position: absolute; left: 0; right: 0; bottom: 0;
-            padding: 32px 14px 14px;
-            background: linear-gradient(to top, rgba(5, 5, 7, 0.95) 0%, rgba(5, 5, 7, 0.7) 50%, transparent 100%);
-            color: #fff; z-index: 2;
-        }
-        .gv-piece-label {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 0.95rem; font-weight: 700;
-            line-height: 1.2; margin-bottom: 2px;
-        }
-        .gv-piece-sub { font-size: 0.7rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 0.3px; }
-
-        /* --- Lightbox (visor con zoom-on-cursor) --- */
-        .gv-lightbox {
-            position: fixed; inset: 0;
-            z-index: 10000;
-            display: none; align-items: center; justify-content: center;
-        }
-        .gv-lightbox.open { display: flex; animation: gvFadeIn 0.3s ease; }
-        @keyframes gvFadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .gv-lb-backdrop {
-            position: fixed; inset: 0;
-            background: rgba(5, 5, 7, 0.94);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-        }
-        .gv-lb-stage {
-            position: relative;
-            width: 92%; max-width: 1100px;
-            height: 78vh; max-height: 820px;
-            z-index: 2; overflow: hidden;
-            border-radius: var(--radius-lg);
-            background: var(--bg-body);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(168, 85, 247, 0.15);
-        }
-        .gv-lb-img {
-            width: 100%; height: 100%;
-            background-size: contain; background-position: center; background-repeat: no-repeat;
-            cursor: zoom-in;
-            transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-origin: center;
-        }
-        .gv-lb-img.zoomed {
-            transform: scale(2.6); cursor: zoom-out;
-            transition: transform-origin 0.06s linear, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .gv-lb-close {
-            position: absolute; top: 26px; right: 26px;
-            width: 46px; height: 46px; border-radius: 50%;
-            border: 1px solid var(--border-light);
-            background: rgba(14, 16, 22, 0.85);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 1.1rem;
-            z-index: 4; transition: var(--transition);
-        }
-        .gv-lb-close:hover { background: var(--primary-gradient); border-color: transparent; transform: rotate(90deg); }
-
-        .gv-lb-nav {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 56px; height: 56px; border-radius: 50%;
-            border: 1px solid var(--border-light);
-            background: rgba(14, 16, 22, 0.85);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 1.1rem;
-            z-index: 4; transition: var(--transition);
-        }
-        .gv-lb-nav.prev { left: 32px; }
-        .gv-lb-nav.next { right: 32px; }
-        .gv-lb-nav:hover { background: var(--primary-gradient); border-color: transparent; color: #fff; }
-        .gv-lb-nav.prev:hover { transform: translateY(-50%) translateX(-3px); }
-        .gv-lb-nav.next:hover { transform: translateY(-50%) translateX(3px); }
-
-        .gv-lb-info {
-            position: absolute; bottom: 28px; left: 28px; right: 28px;
-            display: flex; justify-content: space-between; align-items: flex-end;
-            gap: 20px; z-index: 4; pointer-events: none;
-        }
-        .gv-lb-text { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
-        .gv-lb-counter {
-            font-size: 0.65rem; letter-spacing: 2.5px;
-            color: #d8b4fe; margin-bottom: 8px; font-weight: 700;
-        }
-        .gv-lb-title {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 1.65rem; font-weight: 800;
-            line-height: 1.1; letter-spacing: -0.4px;
-            margin-bottom: 4px;
-        }
-        .gv-lb-meta { font-size: 0.8rem; color: rgba(255, 255, 255, 0.75); letter-spacing: 0.5px; }
-        .gv-lb-hint {
-            pointer-events: auto;
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(14, 16, 22, 0.85);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border: 1px solid var(--border-light);
-            color: #fff; padding: 10px 18px;
-            border-radius: 999px;
-            font-size: 0.7rem; font-weight: 600;
-            letter-spacing: 1.2px; text-transform: uppercase;
-            cursor: pointer; transition: var(--transition);
-            font-family: inherit; white-space: nowrap;
-        }
-        .gv-lb-hint:hover { background: var(--primary-gradient); border-color: transparent; }
-        .gv-lb-hint i { font-size: 0.85rem; }
-        .gv-lb-hint .gv-hint-icon-out { display: none; }
-        .gv-lightbox.is-zoomed .gv-lb-hint .gv-hint-icon-in { display: none; }
-        .gv-lightbox.is-zoomed .gv-lb-hint .gv-hint-icon-out { display: inline-flex; align-items: center; gap: 8px; }
-        .gv-lb-hint .gv-hint-icon-in { display: inline-flex; align-items: center; gap: 8px; }
-
-        /* --- Modal "Ver todas" --- */
-        .gv-modal {
-            position: fixed; inset: 0;
-            z-index: 9999;
-            display: none; align-items: flex-start; justify-content: center;
-            padding: 40px 20px; overflow-y: auto;
-        }
-        .gv-modal.open { display: flex; animation: gvFadeIn 0.3s ease; }
-
-        .gv-modal-backdrop {
-            position: fixed; inset: 0;
-            background: rgba(5, 5, 7, 0.92);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-        }
-        .gv-modal-card {
-            position: relative; width: 100%; max-width: 1080px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-light);
-            border-radius: 30px;
-            padding: 40px 36px 36px;
-            margin: auto;
-            animation: gvSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 0 80px -20px rgba(168, 85, 247, 0.3);
-        }
-        @keyframes gvSlideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        .gv-modal-back {
-            display: inline-flex; align-items: center; gap: 8px;
-            font-size: 0.8rem; color: var(--text-muted);
-            margin-bottom: 14px; letter-spacing: 0.5px;
-            background: none; border: none; cursor: pointer;
-            padding: 0; font-family: inherit;
-            transition: color 0.2s ease;
-        }
-        .gv-modal-back:hover { color: #d8b4fe; }
-
-        .gv-modal-head {
-            display: flex; justify-content: space-between; align-items: flex-start;
-            gap: 16px; margin-bottom: 28px;
-        }
-        .gv-modal-title {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 2.2rem; font-weight: 800;
-            margin: 0 0 6px; letter-spacing: -0.8px; line-height: 1.05;
-            color: #fff;
-        }
-        .gv-modal-sub { font-size: 0.85rem; color: var(--text-muted); letter-spacing: 0.3px; }
-        .gv-modal-close {
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            border: 1px solid var(--border-light);
-            background: rgba(255, 255, 255, 0.04);
-            color: rgba(255, 255, 255, 0.75);
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 1.05rem;
-            flex-shrink: 0; transition: var(--transition);
-        }
-        .gv-modal-close:hover {
-            background: var(--primary-gradient);
-            color: #fff; border-color: transparent;
-            transform: rotate(90deg);
-        }
-        .gv-modal-grid {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-        }
-
-        /* --- Responsive del nuevo portfolio --- */
-        @media (max-width: 900px) {
-            .gv-card { flex: 0 0 184px; height: 246px; margin-right: 14px; }
-            .gv-card-title { font-size: 1.2rem; }
-            .gv-expanded { padding: 22px; }
-            .gv-exp-title { font-size: 1.4rem; }
-            .gv-pieces { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-            .gv-modal-card { padding: 28px 22px 22px; border-radius: 20px; }
-            .gv-modal-title { font-size: 1.7rem; }
-            .gv-modal-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-            .gv-lb-stage { width: 96%; height: 65vh; }
-            .gv-lb-close { top: 14px; right: 14px; width: 40px; height: 40px; }
-            .gv-lb-nav { width: 46px; height: 46px; }
-            .gv-lb-nav.prev { left: 12px; }
-            .gv-lb-nav.next { right: 12px; }
-            .gv-lb-info { bottom: 16px; left: 16px; right: 16px; flex-direction: column; align-items: flex-start; }
-            .gv-lb-title { font-size: 1.25rem; }
-            .gv-lb-img.zoomed { transform: scale(2.2); }
-        }
-        @media (max-width: 560px) {
-            .gv-card { flex: 0 0 158px; height: 212px; }
-            .gv-card-title { font-size: 1rem; }
-            .gv-pieces { grid-template-columns: repeat(2, 1fr); }
-            .gv-exp-head { flex-direction: column; align-items: flex-start; }
-            .gv-see-all { width: 100%; justify-content: center; }
-            .gv-modal-grid { grid-template-columns: repeat(2, 1fr); }
-            .gv-modal-title { font-size: 1.4rem; }
-        }
-        @media (hover: none) {
-            .gv-cursor { display: none !important; }
-            .gv-strip-wrap.cursor-active { cursor: grab; }
-            .gv-strip-wrap.cursor-active.is-dragging { cursor: grabbing; }
-        }
-
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fotografía — Gian Visuals</title>
+<meta name="description" content="Retratos, eventos, fitness y lifestyle. Dirección de foto para personas y marcas personales que quieren verse como lo que ya son." />
+<meta name="theme-color" content="#050507" />
+
+<!-- Previsualización al compartir el link (Open Graph + Twitter) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Gian Visuals" />
+<meta property="og:title" content="Fotografía — Gian Visuals" />
+<meta property="og:description" content="Retratos, eventos, fitness y lifestyle para personas y marcas personales. Dirección de foto en Bogotá." />
+<meta property="og:url" content="https://gianvisuals.com/foto" />
+<!-- ⚠️ Sube una imagen 1200×630 y pon su ruta aquí (idealmente una de tus mejores fotos) -->
+<meta property="og:image" content="https://gianvisuals.com/fotos/Boda.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Fotografía — Gian Visuals" />
+<meta name="twitter:image" content="https://gianvisuals.com/fotos/Boda.jpg" />
+
+<!-- Tailwind Play CDN (disponible para ajustes; el layout va en <style> para que no dependa de la red) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Tipografías de marca -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Archivo+Black&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Caveat:wght@700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#050507; --surface:#0E1016;
+    --ink:#FFFFFF; --muted:#94A3B8; --violet:#7c3aed;
+    --g1:#6366F1; --g2:#A855F7; --g3:#EC4899;
+    --primary-gradient:linear-gradient(90deg,#6366F1 0%,#A855F7 50%,#EC4899 100%);
+    --primary-glow:rgba(168,85,247,.4);
+    --border:rgba(255,255,255,.10);
+  }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html{ scroll-behavior:smooth; overflow-x:clip; }      /* clip (no hidden) para no romper position:sticky */
+  body{ margin:0; background:var(--bg); color:var(--ink);
+        font-family:'Plus Jakarta Sans',system-ui,sans-serif; overflow-x:clip; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:80rem; margin:0 auto; padding-left:2rem; padding-right:2rem; }
+  @media (max-width:640px){ .wrap{ padding-left:1.25rem; padding-right:1.25rem; } }
+
+  /* ---------- Textos de marca ---------- */
+  .gv-name{ font-family:'Archivo Black',sans-serif; letter-spacing:-.03em; user-select:none; }
+  .gv-grad{ background:linear-gradient(90deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);
+            -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  .gv-silver{ background:linear-gradient(180deg,#FFFFFF 0%,#8A93A8 100%);
+              -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  .gv-shine{ background:linear-gradient(90deg,var(--g1) 0%,var(--g2) 45%,var(--g3) 90%); background-size:200% 100%;
+             -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;
+             animation:gvShine 6s linear infinite; }
+  @keyframes gvShine{ to{ background-position:-200% 0; } }
+  .gv-step{ font-family:'Archivo Black',sans-serif; color:transparent;
+            -webkit-text-stroke:1.5px rgba(168,85,247,.55); line-height:1; }
+  .eyebrow{ font-size:.8rem; font-weight:600; letter-spacing:.22em; color:var(--muted); text-transform:uppercase; margin:0; }
+
+  /* ---------- Humo / glow violeta ---------- */
+  .smoke{ position:absolute; inset:0; pointer-events:none; z-index:0;
+    background:radial-gradient(60% 50% at 70% 30%, rgba(124,58,237,.30), transparent 70%),
+              radial-gradient(45% 40% at 25% 70%, rgba(236,72,153,.16), transparent 70%);
+    filter:blur(14px); animation:gvSmoke 9s ease-in-out infinite; }
+  @keyframes gvSmoke{ 0%,100%{ opacity:.85; } 50%{ opacity:1; } }
+
+  /* ---------- Botón liquid glass ---------- */
+  .glass{ position:relative; overflow:hidden; display:inline-flex; align-items:center; gap:.7rem;
+    border-radius:9999px; padding:.95rem 1.6rem; color:#fff; font-weight:600; font-size:.98rem;
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(14px) saturate(1.6); -webkit-backdrop-filter:blur(14px) saturate(1.6);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.35), inset 0 -8px 22px rgba(0,0,0,.35), 0 12px 34px rgba(0,0,0,.45);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, background .35s; }
+  .glass.sm{ padding:.5rem 1rem; font-size:.85rem; gap:.5rem; }
+  .glass.lg{ padding:1.1rem 1.9rem; font-size:1.1rem; }
+  .glass::after{ content:""; position:absolute; left:8%; right:8%; top:0; height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent); opacity:.7; pointer-events:none; }
+  .glass .sheen{ position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+    background:radial-gradient(140px 140px at var(--mx,50%) var(--my,50%), rgba(255,255,255,.22), transparent 60%);
+    opacity:0; transition:opacity .4s; }
+  .glass .swipe{ position:absolute; top:0; bottom:0; width:55%; left:-70%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent); transform:skewX(-18deg); pointer-events:none; }
+  .glass:hover{ transform:translateY(-2px); border-color:rgba(255,255,255,.30); background:rgba(255,255,255,.10); }
+  .glass:hover .sheen{ opacity:1; }
+  .glass:hover .swipe{ animation:gvSwipe .85s ease; }
+  @keyframes gvSwipe{ to{ left:130%; } }
+  .glass .arrow{ display:inline-block; transition:transform .35s; }
+  .glass:hover .arrow{ transform:translateX(4px); }
+  .glass.primary{ background:linear-gradient(90deg,rgba(99,102,241,.22),rgba(168,85,247,.22),rgba(236,72,153,.22)); border-color:rgba(255,255,255,.22); }
+  .glass.primary:hover{ background:linear-gradient(90deg,rgba(99,102,241,.34),rgba(168,85,247,.34),rgba(236,72,153,.34)); }
+
+  /* ---------- Flotación luxury ---------- */
+  .float{ animation:gvBob 6s ease-in-out infinite; }
+  .float.d2{ animation-delay:-2.6s; }
+  .float:hover{ animation-play-state:paused; }
+  @keyframes gvBob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-6px); } }
+
+  /* ---------- Entrada blur->clear ---------- */
+  .reveal{ opacity:0; filter:blur(12px); transform:translateY(20px); }
+  .reveal.in{ opacity:1; filter:blur(0); transform:none;
+    transition:opacity .9s ease, filter .9s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+  .reveal.reveal-left:not(.in){ transform:translateX(-60px); }
+  .reveal.reveal-right:not(.in){ transform:translateX(60px); }
+  .delay-1{ transition-delay:.1s; } .delay-2{ transition-delay:.2s; } .delay-3{ transition-delay:.3s; }
+  .text-gradient{ background:var(--primary-gradient); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+
+  /* ---------- Nav ---------- */
+  #nav{ position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(10,12,18,.55); backdrop-filter:blur(16px) saturate(1.4); -webkit-backdrop-filter:blur(16px) saturate(1.4);
+    border-bottom:1px solid var(--border); transition:background .3s; }
+  #nav nav{ height:4rem; display:flex; align-items:center; justify-content:space-between; }
+  .brand{ display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:-.02em; font-size:1.05rem; }
+  .dot{ width:10px; height:10px; border-radius:9999px; background:linear-gradient(90deg,var(--g1),var(--g3)); }
+  .nav-links{ display:flex; align-items:center; gap:1.6rem; }
+  .nav-link{ color:var(--muted); font-weight:500; font-size:.95rem; transition:color .25s; }
+  .nav-link:hover, .nav-link.active{ color:#fff; }
+  @media (max-width:560px){ .nav-link.hide-sm{ display:none; } .nav-links{ gap:1.1rem; } }
+
+  /* ---------- HERO real (estilo gianvisuals.com) ---------- */
+  .hero{ position:relative; min-height:100vh; padding:130px 0 70px; display:flex; align-items:stretch; overflow:hidden; }
+  .hero-bg{ position:absolute; inset:0; z-index:1; overflow:hidden;
+    background:radial-gradient(80% 60% at 50% 28%, rgba(124,58,237,.18), transparent 70%), var(--surface); }
+  .hero-bg-image{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 12%;
+    filter:brightness(.88) contrast(1.2) saturate(1.05); }
+  .hero-bg-halo{ position:absolute; top:38%; left:50%; transform:translate(-50%,-50%); z-index:2;
+    width:clamp(500px,55vw,800px); aspect-ratio:1/1; border-radius:50%; filter:blur(50px); mix-blend-mode:screen; pointer-events:none;
+    background:radial-gradient(circle at center, rgba(168,85,247,.35) 0%, rgba(139,92,246,.18) 30%, rgba(124,58,237,.08) 50%, transparent 70%);
+    animation:haloPulse 6s ease-in-out infinite; }
+  @keyframes haloPulse{ 0%,100%{ opacity:.85; transform:translate(-50%,-50%) scale(1); } 50%{ opacity:1; transform:translate(-50%,-50%) scale(1.05); } }
+  .hero-bg-grain{ position:absolute; inset:0; z-index:3; opacity:.06; mix-blend-mode:overlay; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E"); }
+  .hero-overlay{ position:absolute; inset:0; z-index:4; pointer-events:none;
+    background:linear-gradient(to right, rgba(5,5,7,.97) 0%, rgba(5,5,7,.85) 10%, rgba(5,5,7,.45) 22%, rgba(5,5,7,.1) 35%, transparent 45%, transparent 55%, rgba(5,5,7,.1) 65%, rgba(5,5,7,.45) 78%, rgba(5,5,7,.85) 90%, rgba(5,5,7,.97) 100%),
+               linear-gradient(to bottom, rgba(5,5,7,.7) 0%, rgba(5,5,7,.2) 12%, transparent 25%, transparent 70%, rgba(5,5,7,.85) 100%); }
+  .hero-content{ position:relative; z-index:5; max-width:1400px; margin:0 auto; padding:0 80px; width:100%;
+    display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr auto; gap:40px 80px; }
+  .hero-left{ grid-column:1; grid-row:1; text-align:left; align-self:center; }
+  .hero-left h1{ font-family:'Plus Jakarta Sans','Inter',sans-serif; font-size:clamp(2rem,3.4vw,3rem); line-height:1.02;
+    font-weight:700; letter-spacing:-2.5px; margin:0; color:#fff; text-shadow:0 2px 30px rgba(0,0,0,.6); }
+  .hero-left h1 .muted{ color:rgba(255,255,255,.3); font-weight:600; letter-spacing:-2px; }
+  .hero-right{ grid-column:2; grid-row:1; text-align:right; align-self:center; }
+  .hero-desc{ font-family:'Plus Jakarta Sans','Inter',sans-serif; font-size:.95rem; color:rgba(255,255,255,.7);
+    margin:0 0 0 auto; line-height:1.65; max-width:300px; font-weight:400; text-shadow:0 1px 20px rgba(0,0,0,.6); }
+  .hero-cta-row{ grid-column:1/-1; grid-row:2; display:flex; justify-content:center; align-items:center; gap:14px; flex-wrap:wrap; padding-top:30px; }
+  .badge{ display:inline-block; padding:4px 12px; background:rgba(168,85,247,.15); color:#d8b4fe; border:1px solid rgba(168,85,247,.3);
+    border-radius:20px; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; margin-bottom:20px; }
+
+  /* botones sólidos del hero */
+  .btn{ display:inline-block; padding:14px 28px; border-radius:50px; font-weight:600; font-size:.95rem; cursor:pointer;
+    border:1px solid transparent; text-align:center; transition:all .3s cubic-bezier(.4,0,.2,1); }
+  .btn-primary{ background:var(--primary-gradient); color:#fff; box-shadow:0 4px 20px var(--primary-glow); }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 30px var(--primary-glow); filter:brightness(1.1); }
+  .btn-secondary{ background:rgba(255,255,255,.05); color:#fff; border:1px solid var(--border); }
+  .btn-secondary:hover{ background:rgba(255,255,255,.1); }
+
+  /* float sutil del hero (solo tras revelarse) */
+  @keyframes floatA{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-6px); } }
+  @keyframes floatB{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+  @keyframes floatC{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-5px); } }
+  .hero-left .badge{ animation:floatA 5.5s ease-in-out infinite; animation-delay:.4s; }
+  .hero-left h1{ animation:floatB 7s ease-in-out infinite; }
+  .hero-desc{ animation:floatC 6s ease-in-out infinite; animation-delay:1s; }
+  .hero-cta-row{ animation:floatA 6.5s ease-in-out infinite; animation-delay:.8s; }
+  .reveal:not(.in){ animation:none !important; }
+
+  /* palabra que morfea entre tipografías */
+  .morph-wrap{ display:inline-block; min-width:6.5ch; position:relative; vertical-align:baseline; text-align:left; }
+  .morph-text{ display:inline-block; animation:morphCycle 12s infinite; transform-origin:left center;
+    will-change:font-family,transform,opacity,filter; background:var(--primary-gradient);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; }
+  @keyframes morphCycle{
+    0%,18%{ font-family:'Plus Jakarta Sans',sans-serif; font-style:normal; font-weight:700; letter-spacing:-2px; opacity:1; filter:blur(0); transform:translateY(0); }
+    22%{ opacity:.25; filter:blur(5px); transform:translateY(-3px); }
+    25%{ font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-1px; opacity:.25; filter:blur(5px); transform:translateY(3px); }
+    28%,43%{ font-family:'Instrument Serif',serif; font-style:italic; font-weight:400; letter-spacing:-1px; opacity:1; filter:blur(0); transform:translateY(0); }
+    47%{ opacity:.25; filter:blur(5px); transform:translateY(-3px); }
+    50%{ font-family:'Caveat',cursive; font-style:normal; font-weight:700; letter-spacing:0; opacity:.25; filter:blur(5px); transform:translateY(3px); }
+    53%,68%{ font-family:'Caveat',cursive; font-style:normal; font-weight:700; letter-spacing:0; opacity:1; filter:blur(0); transform:translateY(0); }
+    72%{ opacity:.25; filter:blur(5px); transform:translateY(-3px); }
+    75%{ font-family:'JetBrains Mono',monospace; font-style:normal; font-weight:700; letter-spacing:-2px; opacity:.25; filter:blur(5px); transform:translateY(3px); }
+    78%,93%{ font-family:'JetBrains Mono',monospace; font-style:normal; font-weight:700; letter-spacing:-2px; opacity:1; filter:blur(0); transform:translateY(0); }
+    97%{ opacity:.25; filter:blur(5px); transform:translateY(-3px); }
+    100%{ font-family:'Plus Jakarta Sans',sans-serif; font-style:normal; font-weight:700; letter-spacing:-2px; opacity:.25; filter:blur(5px); transform:translateY(3px); }
+  }
+
+  @media (max-width:968px){
+    .hero{ padding:90px 0 30px; }
+    .hero-content{ grid-template-columns:1fr; grid-template-rows:auto auto auto; gap:0 20px; padding:0 20px; min-height:calc(100vh - 120px); align-items:stretch; }
+    .hero-left{ grid-column:1; grid-row:1; align-self:end; padding-bottom:28px; }
+    .hero-right{ grid-column:1; grid-row:2; text-align:left; align-self:start; padding-top:12px; margin:0; width:100%; }
+    .hero-cta-row{ grid-column:1; grid-row:3; padding-top:24px; padding-bottom:8px; align-self:end; flex-direction:column; gap:10px; width:100%; align-items:center; }
+    .hero-left .badge{ margin-bottom:14px; font-size:.65rem; }
+    .hero-left h1{ font-size:clamp(1.4rem,5.8vw,1.95rem); letter-spacing:-1px; line-height:1.1; }
+    .hero-left h1 br{ display:none; }
+    .hero-left h1 .muted{ display:inline; }
+    .hero-desc{ font-size:.78rem; max-width:100%; text-align:left; color:rgba(255,255,255,.78); }
+    .hero-cta-row .btn{ width:100%; max-width:360px; }
+    .hero-bg-image{ object-position:35% 22%; }
+    .hero-bg-halo{ width:clamp(260px,60vw,360px); top:35%; left:55%; }
+    .hero-overlay{ background:linear-gradient(to right, rgba(5,5,7,.85) 0%, rgba(5,5,7,.65) 30%, rgba(5,5,7,.25) 50%, transparent 65%, transparent 100%),
+                              linear-gradient(to bottom, rgba(5,5,7,.6) 0%, transparent 18%, transparent 70%, rgba(5,5,7,.88) 90%, rgba(5,5,7,.98) 100%); }
+  }
+
+  /* ---------- Encabezado de sección ---------- */
+  .sec-head h2{ margin:0; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:800; letter-spacing:-.02em; }
+  .sec-head{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:1.2rem; }
+  .count{ margin:0; color:var(--muted); font-size:.9rem; }
+  .count b{ font-family:ui-monospace,monospace; font-weight:500; letter-spacing:.05em; }
+
+  /* ---------- Cards apiladas (sticky stack) por serie ---------- */
+  .stack-card{ position:sticky; margin-bottom:2.2rem; border-radius:28px; border:1px solid rgba(255,255,255,.12);
+    overflow:hidden; box-shadow:0 -8px 30px rgba(0,0,0,.35), 0 30px 80px rgba(0,0,0,.5);
+    padding:clamp(1.6rem,3vw,2.8rem); min-height:74vh; transform-origin:center top; will-change:transform;
+    display:flex; flex-direction:column; justify-content:center; background:var(--surface); }
+  .stack-dim{ position:absolute; inset:0; z-index:5; pointer-events:none; background:#050507; opacity:0; }
+  .stack-inner{ position:relative; z-index:2; display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+    gap:clamp(1.6rem,3vw,3.2rem); align-items:center; width:100%; }
+  @media (max-width:860px){ .stack-inner{ grid-template-columns:1fr; } .stack-card{ min-height:auto; } }
+  .stack-label{ margin:0; font-size:clamp(2.6rem,5.5vw,4rem); line-height:.92; }
+  .stack-desc{ margin:1.4rem 0 0; max-width:24rem; color:var(--muted); font-size:1.1rem; line-height:1.6; }
+  .stack-meta{ margin:1.6rem 0 0; font-family:ui-monospace,monospace; font-size:.74rem; letter-spacing:.14em;
+    text-transform:uppercase; color:rgba(255,255,255,.45); }
+  .thumbs{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; }
+  @media (max-width:480px){ .thumbs{ grid-template-columns:repeat(2,1fr); } }
+
+  .shot{ position:relative; display:block; width:100%; padding:0; border:1px solid var(--border);
+    border-radius:12px; overflow:hidden; cursor:zoom-in; aspect-ratio:4/5;
+    background:radial-gradient(120% 100% at 30% 20%, rgba(var(--tint,124,58,237),.28), transparent 62%),
+               repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0 2px, transparent 2px 9px), var(--surface);
+    transition:transform .45s cubic-bezier(.2,.8,.2,1), border-color .45s; }
+  .shot:hover{ transform:translateY(-4px); border-color:rgba(255,255,255,.22); }
+  /* placeholder visible cuando la imagen no existe / aún no carga */
+  .shot .ph{ position:absolute; inset:0; z-index:0; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:.45rem; color:rgba(255,255,255,.42); pointer-events:none; }
+  .shot .ph-ic{ font-size:1.15rem; opacity:.8; }
+  .shot .ph-file{ font-family:ui-monospace,monospace; font-size:.6rem; letter-spacing:.04em; }
+  .shot img{ position:relative; z-index:1; width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .7s cubic-bezier(.2,.8,.2,1); }
+  .shot:hover img{ transform:scale(1.06); }
+  .shot .scrim{ position:absolute; inset:0; z-index:2; pointer-events:none; opacity:0; transition:opacity .4s;
+    background:linear-gradient(to top, rgba(5,5,7,.8) 0%, transparent 52%); }
+  .shot:hover .scrim{ opacity:1; }
+  .shot .zoom{ position:absolute; top:.5rem; right:.5rem; z-index:3; width:30px; height:30px; border-radius:9999px;
+    display:grid; place-items:center; color:#fff; font-size:.72rem; background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.20); backdrop-filter:blur(8px); opacity:0; transition:opacity .35s; }
+  .shot:hover .zoom{ opacity:1; }
+  .shot .cap{ position:absolute; left:.6rem; right:.6rem; bottom:.55rem; z-index:3; opacity:0;
+    transform:translateY(8px); transition:opacity .4s, transform .4s; }
+  .shot:hover .cap{ opacity:1; transform:none; }
+  .shot .cap h4{ margin:0; font-weight:700; font-size:.82rem; line-height:1.2; }
+  .shot .cap p{ margin:.1rem 0 0; color:var(--muted); font-size:.7rem; }
+
+  /* ---------- Sobre mí (tarjeta ID como en gianvisuals.com) ---------- */
+  .about-card{ position:relative; border:1px solid var(--border); border-radius:28px; overflow:hidden;
+    background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01)), var(--surface);
+    box-shadow:0 30px 80px rgba(0,0,0,.4); padding:clamp(1.8rem,4vw,3.5rem); }
+  .about-grid{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(2rem,4vw,4rem); align-items:center; }
+  @media (max-width:840px){ .about-grid{ grid-template-columns:1fr; gap:2.5rem; } }
+  .about-h2{ margin:.4rem 0 0; font-size:clamp(2.2rem,5vw,3.4rem); font-weight:800; letter-spacing:-.02em; line-height:1.05; }
+  .about-copy{ margin:1.6rem 0 0; color:var(--muted); font-size:1.08rem; line-height:1.75; }
+  .about-copy strong{ color:#fff; font-weight:600; }
+  .stats-row{ display:flex; gap:2.4rem; flex-wrap:wrap; margin-top:2.4rem; }
+  .stat h3{ margin:0; font-size:clamp(2rem,4vw,2.8rem); font-weight:800; letter-spacing:-.02em; line-height:1;
+    background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .stat p{ margin:.4rem 0 0; color:var(--muted); font-size:.8rem; letter-spacing:.02em; }
+
+  .about-visual{ display:flex; justify-content:center; perspective:1000px; }
+  .id-card{ position:relative; width:min(320px,92%); border-radius:24px; padding:1rem;
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:0 30px 70px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.25);
+    transform-style:preserve-3d; transition:transform .25s ease; will-change:transform; }
+  .id-card::before{ content:""; position:absolute; inset:-1px; border-radius:24px; padding:1px; pointer-events:none;
+    background:linear-gradient(135deg, rgba(99,102,241,.6), rgba(168,85,247,.35), rgba(236,72,153,.6));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite:exclude; opacity:.75; }
+  .id-photo{ position:relative; aspect-ratio:4/5; border-radius:16px; overflow:hidden;
+    background:radial-gradient(120% 90% at 40% 25%, rgba(168,85,247,.3), transparent 60%), var(--surface); }
+  .id-photo img{ position:relative; z-index:1; width:100%; height:100%; object-fit:cover; display:block; }
+  .id-ph{ position:absolute; inset:0; z-index:0; display:grid; place-items:center; font-family:ui-monospace,monospace; font-size:.7rem; color:rgba(255,255,255,.45); }
+  .id-info{ padding:.9rem .4rem .3rem; }
+  .id-name{ display:block; font-family:'Archivo Black',sans-serif; font-size:1.15rem; letter-spacing:.02em; }
+  .id-role{ display:block; margin-top:.25rem; color:var(--muted); font-size:.82rem; }
+
+  /* ---------- Proceso ---------- */
+  .procs{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; }
+  @media (max-width:820px){ .procs{ grid-template-columns:1fr; } }
+  .proc{ background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    border:1px solid var(--border); border-radius:20px; padding:1.9rem; transition:transform .4s, border-color .4s; }
+  .proc:hover{ transform:translateY(-5px); border-color:rgba(168,85,247,.4); }
+  .proc h3{ margin:0 0 .7rem; font-size:1.25rem; font-weight:700; }
+  .proc p{ margin:0; color:var(--muted); line-height:1.65; }
+
+  /* ---------- CTA ---------- */
+  .cta{ position:relative; z-index:10; overflow:hidden; min-height:94vh; display:flex; align-items:center; border-top:1px solid var(--border); }
+  #ctaTrail{ position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+  .trail-img{ position:absolute; width:clamp(120px,11vw,160px); aspect-ratio:4/5; border-radius:14px; overflow:hidden;
+    pointer-events:none; will-change:transform,opacity; border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 24px 60px rgba(0,0,0,.55); transform:translate(-50%,-50%) rotate(var(--r,0deg)); }
+  .trail-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+  @keyframes gvTrail{
+    0%{ opacity:0; transform:translate(-50%,-50%) scale(.55) rotate(var(--r,0deg)); }
+    16%{ opacity:1; transform:translate(-50%,-50%) scale(1) rotate(var(--r,0deg)); }
+    100%{ opacity:0; transform:translate(-50%,calc(-50% - 34px)) scale(.86) rotate(var(--r,0deg)); }
+  }
+  .cta-inner{ position:relative; z-index:3; max-width:56rem; margin:0 auto; text-align:center; pointer-events:none; }
+  .cta h2{ margin:0; font-size:clamp(2.2rem,6vw,4rem); font-weight:800; letter-spacing:-.02em; line-height:1.05; }
+  .cta .lead{ margin:1.6rem auto 0; max-width:34rem; color:var(--muted); font-size:1.2rem; line-height:1.6; }
+
+  /* ---------- Footer ---------- */
+  footer{ position:relative; z-index:10; border-top:1px solid var(--border); }
+  footer .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.2rem; padding-top:2.6rem; padding-bottom:2.6rem; }
+  .foot-links{ display:flex; align-items:center; gap:1.6rem; color:var(--muted); font-size:.9rem; }
+  .foot-links a{ transition:color .25s; }
+  .foot-links a:hover{ color:#fff; }
+
+  /* ---------- Lightbox ---------- */
+  #lb{ position:fixed; inset:0; z-index:90; display:none; }
+  #lb.open{ display:block; }
+  #lb .bg{ position:absolute; inset:0; background:rgba(3,3,5,.92); backdrop-filter:blur(8px); }
+  #lb .stage{ position:absolute; inset:0; display:grid; place-items:center; padding:4vw; overflow:hidden; }
+  #lb img{ max-width:88vw; max-height:84vh; border-radius:12px; box-shadow:0 30px 90px rgba(0,0,0,.7);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1); cursor:zoom-in; will-change:transform; }
+  #lb img.zoomed{ cursor:grab; transition:transform .12s linear; }
+  #lb .lb-btn{ position:absolute; z-index:4; top:50%; transform:translateY(-50%); width:52px; height:52px; border-radius:9999px;
+    display:grid; place-items:center; color:#fff; font-size:1.1rem; background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18); backdrop-filter:blur(10px); cursor:pointer; transition:background .3s; }
+  #lb .lb-btn:hover{ background:rgba(255,255,255,.18); }
+  #lb .prev{ left:1.1rem; } #lb .next{ right:1.1rem; }
+  #lb .close{ top:1.1rem; right:1.1rem; transform:none; width:46px; height:46px; }
+  #lb .count{ position:absolute; top:1.5rem; left:1.5rem; z-index:4; color:var(--muted); font-size:.85rem; letter-spacing:.05em; }
+  #lb .lb-cap{ position:absolute; left:0; right:0; bottom:1.4rem; text-align:center; z-index:3; pointer-events:none; }
+  #lb .lb-cap h4{ margin:0; font-weight:700; }
+  #lb .lb-cap p{ margin:.2rem 0 0; color:var(--muted); font-size:.85rem; }
+  @media (max-width:768px){ #lb .lb-btn{ width:44px; height:44px; } #lb img{ max-width:94vw; } }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation:none !important; transition:none !important; }
+    .reveal{ opacity:1; filter:none; transform:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
 </head>
+
 <body>
 
-    <div class="ambient-light"></div>
-    <canvas id="particles-canvas"></canvas>
-    <div class="parallax-bg" data-speed="0.1" style="top: 10%; left: 5%;"></div>
-    <div class="parallax-bg" data-speed="-0.15" style="top: 60%; right: 5%; background: rgba(236, 72, 153, 0.3);"></div>
+<!-- ===================== PARTÍCULAS GLOBALES ===================== -->
+<canvas id="px" style="position:fixed; inset:0; z-index:-10; pointer-events:none;"></canvas>
 
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">GIAN <span class="text-gradient">VISUALS</span></div>
-            <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
-            <div class="nav-links">
-                <a href="#sobre-mi" onclick="closeMenu()">Sobre Mí</a>
-                <a href="#portfolio" onclick="closeMenu()">Portafolio</a>
-                <a href="#como-funciona" onclick="closeMenu()">Proceso</a>
-                <a href="#precios" onclick="closeMenu()">Planes</a>
-               <button class="btn btn-primary" onclick="window.open('https://wa.me/573209263077?text=Vi%20tu%20portafolio%20y%20me%20interesa%20trabajar%20contigo','_blank'); closeMenu()">Empezar Ahora</button>
+<!-- ===================== NAV ===================== -->
+<header id="nav">
+  <nav class="wrap">
+    <a href="/" class="brand"><span class="dot"></span>gian<span class="gv-grad">visuals</span></a>
+    <div class="nav-links">
+      <a href="/foto" class="nav-link active hide-sm">Foto</a>
+      <a href="/video" class="nav-link">Video</a>
+      <a href="/" class="nav-link hide-sm">Inicio</a>
+      <a href="https://wa.me/573209263077?text=Hola%20Gian%2C%20quiero%20cotizar%20un%20shooting" target="_blank" rel="noopener" data-glass class="glass sm float">
+        <span class="sheen"></span><span class="swipe"></span><span>Cotizar</span><span class="arrow">→</span>
+      </a>
+    </div>
+  </nav>
+</header>
 
-            </div>
+<!-- ===================== HERO (real, estilo gianvisuals.com) ===================== -->
+<header class="hero">
+  <div class="hero-bg">
+    <img src="https://gianvisuals.com/hero.jpeg" alt="Gian Paol Muñoz — Partner Creativo Audiovisual" class="hero-bg-image" loading="eager" onerror="this.style.display='none'">
+    <div class="hero-bg-halo"></div>
+    <div class="hero-bg-grain"></div>
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <span class="badge reveal">PARTNER CREATIVO 360°</span>
+      <h1 class="reveal reveal-left delay-1">
+        Hay miles<br>
+        de<br>
+        realizadores.<br>
+        <span class="morph-wrap">
+          <span class="morph-text text-gradient" data-text="Tu marca">Tu marca</span>
+        </span><br>
+        <span class="muted">necesita un</span><br>
+        <span class="muted">partner.</span>
+      </h1>
+    </div>
+
+    <div class="hero-right reveal reveal-right delay-3">
+      <p class="hero-desc">
+        Construyo ecosistemas audiovisuales premium para fundadores y marcas que entendieron que su imagen percibida no puede ir detrás de su valor real.
+      </p>
+    </div>
+
+    <div class="hero-cta-row reveal reveal-up delay-3">
+      <a href="https://wa.me/573209263077?text=Quiero%20agendar%20mi%20llamada%20estrat%C3%A9gica%20de%2015%20min" target="_blank" rel="noopener" class="btn btn-primary">Agendar llamada estratégica</a>
+      <a href="#trabajos" class="btn btn-secondary">Ver portafolio</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== INTRO PORTAFOLIO ===================== -->
+<section id="trabajos" style="position:relative; z-index:10; padding-top:5.5rem;">
+  <div class="wrap sec-head reveal">
+    <div>
+      <p class="eyebrow" style="margin-bottom:.8rem">El portafolio</p>
+      <h2>Cuatro series, una mirada</h2>
+    </div>
+    <p class="count"><b id="totalCount"></b> · desliza ↓</p>
+  </div>
+</section>
+
+<!-- ===================== CARDS APILADAS (se rellenan por JS) ===================== -->
+<section style="position:relative; z-index:10;">
+  <div class="wrap" id="stack" style="padding-top:2rem; padding-bottom:7rem;"></div>
+</section>
+
+<!-- ===================== SOBRE MÍ ===================== -->
+<section style="position:relative; z-index:10; border-top:1px solid var(--border);">
+  <div class="wrap" style="padding-top:5.5rem; padding-bottom:5.5rem;">
+    <div class="about-card reveal">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="eyebrow" style="margin-bottom:1rem">Sobre mí</p>
+          <h2 class="about-h2">Partner <span class="gv-grad">Creativo</span></h2>
+          <p class="about-copy">Soy <strong>Gian</strong>, <strong>Comunicador Audiovisual</strong> de formación y <strong>estratega visual</strong> por vocación. Ayudo a <strong>marcas y líderes de industria</strong> a cerrar la brecha entre su <strong>valor real</strong> y su <strong>imagen percibida</strong>.<br><br>No diseño piezas sueltas; construyo <strong>ecosistemas audiovisuales</strong> que proyectan <strong>autoridad instantánea</strong>. Mi objetivo es convertirte en <strong>el referente indiscutible de tu nicho</strong>.<br><br>Si buscas un realizador, hay miles. Si buscas un <strong>partner creativo</strong>, estás en el <strong>lugar correcto</strong>.</p>
+          <div class="stats-row">
+            <div class="stat"><h3 class="counter" data-target="50">0</h3><p>Proyectos Fin.</p></div>
+            <div class="stat"><h3 class="counter" data-target="4">0</h3><p>Años Exp.</p></div>
+            <div class="stat"><h3 class="counter" data-target="90" data-suffix="%">0</h3><p>% Satisfacción</p></div>
+          </div>
         </div>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-bg">
-            <img src="hero.jpeg" alt="Gian Paol Muñoz - Partner Creativo Audiovisual" class="hero-bg-image" loading="eager">
-            <div class="hero-bg-halo"></div>
-            <div class="hero-bg-grain"></div>
+        <div class="about-visual">
+          <div class="id-card" id="tiltCard">
+            <div class="id-photo">
+              <span class="id-ph">yo.jpg</span>
+              <img src="yo.jpg" alt="Gian Paol Muñoz — Comunicador Audiovisual" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <div class="id-info">
+              <span class="id-name">GIAN PAOL</span>
+              <span class="id-role">Comunicador Audiovisual</span>
+            </div>
+          </div>
         </div>
-
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <div class="hero-left">
-                <span class="badge reveal reveal-up">PARTNER CREATIVO 360°</span>
-                <h1 class="reveal reveal-left delay-1">
-                    Hay miles<br>
-                    de<br>
-                    realizadores.<br>
-                    <span class="morph-wrap">
-                        <span class="morph-text text-gradient" data-text="Tu marca">Tu marca</span>
-                    </span><br>
-                    <span class="muted">necesita un</span><br>
-                    <span class="muted">partner.</span>
-                </h1>
-            </div>
-
-            <div class="hero-right reveal reveal-right delay-3">
-                <p class="hero-desc">
-                    Construyo ecosistemas audiovisuales premium para fundadores y marcas que entendieron que su imagen percibida no puede ir detrás de su valor real.
-                </p>
-            </div>
-
-            <div class="hero-cta-row reveal reveal-up delay-3">
-                <button class="btn btn-primary" onclick="window.open('https://wa.me/573209263077?text=Quiero%20agendar%20mi%20llamada%20estrat%C3%A9gica%20de%2015%20min','_blank'); closeMenu()">
-                    Agendar llamada estratégica
-                </button>
-                <a href="#portfolio" class="btn btn-secondary">Ver Portafolio</a>
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <section id="sobre-mi" class="container section-padding">
-            <div class="about-card-container reveal reveal-up">
-                <div class="about-grid">
-                    <article class="about-text">
-                        <h2 class="reveal reveal-left delay-1">Partner <span class="text-gradient">Creativo</span></h2>
-                        <br>
-                        <p class="reveal reveal-left delay-2"> Soy <strong>Gian</strong>, <strong>Comunicador Audiovisual</strong> de formación y <strong>estratega visual</strong> por vocación. 
-                    Ayudo a <strong>marcas y líderes de industria</strong> a cerrar la brecha entre su <strong>valor real</strong> y su <strong>imagen percibida</strong>. <br><br>
-
-                    No diseño piezas sueltas; construyo <strong>ecosistemas audiovisuales</strong> que proyectan 
-                    <strong>autoridad instantánea</strong>.  
-                    Mi objetivo es convertirte en 
-                    <strong>el referente indiscutible de tu nicho</strong>. <br><br>
-
-                    Si buscas un realizador, hay miles.  
-                    Si buscas un <strong>partner creativo</strong>, estás en el <strong>lugar correcto</strong>.
-                </p>
-                        <div class="stats-row">
-                            <div class="stat-item reveal reveal-up delay-1"><h3 class="counter" data-target="50">0</h3><p>Proyectos Fin.</p></div>
-                            <div class="stat-item reveal reveal-up delay-2"><h3 class="counter" data-target="4">0</h3><p>Años Exp.</p></div>
-                            <div class="stat-item reveal reveal-up delay-3"><h3 class="counter" data-target="90" data-suffix="%">0</h3><p>% Satisfacción</p></div>
-                        </div>
-                    </article>
-                    <div class="about-visual reveal reveal-right delay-2">
-                        <div class="id-card-wrapper">
-                            <div class="id-card" id="tiltCard">
-                                <img src="yo.jpg" class="id-photo" alt="Gian Paol Muñoz - Editor de Video">
-                                <span class="id-name">GIAN PAOL</span>
-                                <span class="id-role"> Comunicador Audiovisual</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================================
-             PORTFOLIO — Carrusel de categorías con cursor direccional,
-             panel expandido, modal "Ver todas" y lightbox con zoom-on-cursor
-        ============================================================ -->
-        <section id="portfolio" class="section-padding container">
-            <div class="section-header reveal reveal-up">
-                <h2>Showcase <span class="text-gradient">Premium</span></h2>
-                <p>Cada categoría, un universo visual. Pasa el cursor sobre las cards y muévelo para navegar.</p>
-            </div>
-
-            <div class="gv-strip-wrap cursor-active reveal reveal-up" id="gvStripWrap">
-                <div class="gv-strip" id="gvStrip">
-
-                    <button class="gv-card gv-c-reels" data-id="reels" aria-label="Abrir categoría Reels y Video">
-                        <div class="gv-card-img" style="background-image: url('https://img.youtube.com/vi/sS6-BWuXkik/hqdefault.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">01</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Reels & Video</h3>
-                            <div class="gv-card-meta"><i class="fas fa-play"></i>Vertical · Retención</div>
-                        </div>
-                    </button>
-
-                    <button class="gv-card gv-c-bodas" data-id="bodas" aria-label="Abrir categoría Bodas y Eventos">
-                        <div class="gv-card-img" style="background-image: url('fotos/Boda.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">02</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Bodas & Eventos</h3>
-                            <div class="gv-card-meta"><i class="fas fa-heart"></i>Cinematográfico</div>
-                        </div>
-                    </button>
-
-                    <button class="gv-card gv-c-retratos" data-id="retratos" aria-label="Abrir categoría Retratos">
-                        <div class="gv-card-img" style="background-image: url('fotos/Isa1.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">03</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Retratos</h3>
-                            <div class="gv-card-meta"><i class="fas fa-user"></i>Editorial · Brand</div>
-                        </div>
-                    </button>
-
-                    <button class="gv-card gv-c-producto" data-id="producto" aria-label="Abrir categoría Producto">
-                        <div class="gv-card-img" style="background-image: url('fotos/r1.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">04</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Producto</h3>
-                            <div class="gv-card-meta"><i class="fas fa-camera"></i>Lujo · Branding</div>
-                        </div>
-                    </button>
-
-                    <button class="gv-card gv-c-lifestyle" data-id="lifestyle" aria-label="Abrir categoría Lifestyle">
-                        <div class="gv-card-img" style="background-image: url('fotos/g1.jpeg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">05</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Lifestyle</h3>
-                            <div class="gv-card-meta"><i class="fas fa-sun"></i>Orgánico premium</div>
-                        </div>
-                    </button>
-
-                    <!-- Duplicados para loop infinito sin saltos -->
-                    <button class="gv-card gv-c-reels" data-id="reels" aria-hidden="true" tabindex="-1">
-                        <div class="gv-card-img" style="background-image: url('https://img.youtube.com/vi/sS6-BWuXkik/hqdefault.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">01</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Reels & Video</h3>
-                            <div class="gv-card-meta"><i class="fas fa-play"></i>Vertical · Retención</div>
-                        </div>
-                    </button>
-                    <button class="gv-card gv-c-bodas" data-id="bodas" aria-hidden="true" tabindex="-1">
-                        <div class="gv-card-img" style="background-image: url('fotos/Boda.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">02</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Bodas & Eventos</h3>
-                            <div class="gv-card-meta"><i class="fas fa-heart"></i>Cinematográfico</div>
-                        </div>
-                    </button>
-                    <button class="gv-card gv-c-retratos" data-id="retratos" aria-hidden="true" tabindex="-1">
-                        <div class="gv-card-img" style="background-image: url('fotos/Isa1.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">03</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Retratos</h3>
-                            <div class="gv-card-meta"><i class="fas fa-user"></i>Editorial · Brand</div>
-                        </div>
-                    </button>
-                    <button class="gv-card gv-c-producto" data-id="producto" aria-hidden="true" tabindex="-1">
-                        <div class="gv-card-img" style="background-image: url('fotos/r1.jpg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">04</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Producto</h3>
-                            <div class="gv-card-meta"><i class="fas fa-camera"></i>Lujo · Branding</div>
-                        </div>
-                    </button>
-                    <button class="gv-card gv-c-lifestyle" data-id="lifestyle" aria-hidden="true" tabindex="-1">
-                        <div class="gv-card-img" style="background-image: url('fotos/g1.jpeg');"></div>
-                        <div class="gv-card-vignette"></div>
-                        <span class="gv-card-num">05</span>
-                        <div class="gv-card-content">
-                            <h3 class="gv-card-title">Lifestyle</h3>
-                            <div class="gv-card-meta"><i class="fas fa-sun"></i>Orgánico premium</div>
-                        </div>
-                    </button>
-
-                </div>
-            </div>
-
-            <p class="gv-hint"><i class="fas fa-arrows-left-right"></i> Pasa el cursor encima y muévelo a izquierda o derecha · clic en cualquier card para ver sus piezas</p>
-
-            <div class="gv-expanded reveal reveal-up" id="gvExpanded">
-                <div class="gv-exp-head">
-                    <div>
-                        <h3 class="gv-exp-title" id="gvExpTitle">Reels & Video</h3>
-                        <span class="gv-exp-sub" id="gvExpSub">Producción vertical premium · diseñado para retención</span>
-                    </div>
-                    <button class="btn btn-secondary gv-see-all" onclick="gvOpenModal()" aria-label="Ver todas las piezas">
-                        Ver todas <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-                <div class="gv-pieces" id="gvPieces"></div>
-            </div>
-        </section>
-
-        <!-- Custom directional cursor -->
-        <div class="gv-cursor" id="gvCursor">
-            <div class="gv-cursor-inner">
-                <i class="fas fa-arrow-right gv-cursor-arrow"></i>
-            </div>
-        </div>
-
-        <!-- Lightbox individual con zoom-on-cursor -->
-        <div class="gv-lightbox" id="gvLightbox" role="dialog" aria-modal="true" aria-label="Visor de imagen">
-            <div class="gv-lb-backdrop" onclick="gvCloseLightbox()"></div>
-
-            <button class="gv-lb-close" onclick="gvCloseLightbox()" aria-label="Cerrar visor">
-                <i class="fas fa-times"></i>
-            </button>
-
-            <button class="gv-lb-nav prev" onclick="gvLightboxNav(-1)" aria-label="Imagen anterior">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <button class="gv-lb-nav next" onclick="gvLightboxNav(1)" aria-label="Imagen siguiente">
-                <i class="fas fa-arrow-right"></i>
-            </button>
-
-            <div class="gv-lb-stage">
-                <div class="gv-lb-img" id="gvLbImg"></div>
-            </div>
-
-            <div class="gv-lb-info">
-                <div class="gv-lb-text">
-                    <div class="gv-lb-counter" id="gvLbCounter">01 / 01</div>
-                    <div class="gv-lb-title" id="gvLbTitle">Título</div>
-                    <div class="gv-lb-meta" id="gvLbMeta">Meta</div>
-                </div>
-                <button class="gv-lb-hint" onclick="gvLightboxToggleZoom()">
-                    <span class="gv-hint-icon-in"><i class="fas fa-search-plus"></i> Click para zoom</span>
-                    <span class="gv-hint-icon-out"><i class="fas fa-search-minus"></i> Click para salir</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Modal "Ver todas" -->
-        <div class="gv-modal" id="gvModal" role="dialog" aria-modal="true" aria-labelledby="gvModalTitle">
-            <div class="gv-modal-backdrop" onclick="gvCloseModal()"></div>
-            <div class="gv-modal-card">
-                <button class="gv-modal-back" onclick="gvCloseModal()">
-                    <i class="fas fa-arrow-left"></i> Volver al portafolio
-                </button>
-                <div class="gv-modal-head">
-                    <div>
-                        <h3 class="gv-modal-title" id="gvModalTitle">Categoría</h3>
-                        <p class="gv-modal-sub" id="gvModalSub">Subtítulo</p>
-                    </div>
-                    <button class="gv-modal-close" onclick="gvCloseModal()" aria-label="Cerrar">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="gv-modal-grid" id="gvModalGrid"></div>
-            </div>
-        </div>
-
-
-        <section id="como-funciona" class="section-padding container">
-            <div class="section-header reveal reveal-up">
-                <h2>Proceso <span class="text-gradient">Estratégico</span></h2>
-                <p>Cómo llevamos tu contenido al siguiente nivel.</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-card reveal reveal-up delay-1">
-                    <div class="process-icon"><i class="fas fa-comments"></i></div>
-                    <h3>1. Inmersión Creativa</h3>
-                    <p>Decodificamos tu ADN de marca para diseñar una narrativa visual que proyecte autoridad y conecte.</p>
-                </div>
-                <div class="process-card reveal reveal-up delay-2">
-                    <div class="process-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
-                    <h3>2. Ejecución Audiovisual </h3>
-                    <p>Fusionamos contenido audiovisual bajo una estética propia, garantizando coherencia en todo tu ecosistema</p>
-                </div>
-                <div class="process-card reveal reveal-up delay-3">
-                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>3. Despliegue de Activos</h3>
-                    <p>Entregamos contenido optimizado y de alto impacto, diseñado para dominar y consolidar tu estatus como referente..</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="precios" class="section-padding container">
-            <div class="section-header reveal reveal-up">
-                <h2>Planes de Inversión</h2>
-            </div>
-            <div class="cards-grid">
-                <div class="glass-card reveal reveal-up delay-1">
-                    <h3>Starter</h3>
-                    <span class="price-tag">$500 <span class="price-period">/mes</span></span>
-                    <p style="color:var(--text-muted)">Ideal para marcas emergentes.</p>
-                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
-                </div>
-                <div class="glass-card reveal reveal-up delay-2" style="border-color: #A855F7;">
-                    <h3>Growth</h3>
-                    <span class="price-tag">$1,500 <span class="price-period">/mes</span></span>
-                    <p style="color:var(--text-muted)">Escalado agresivo de contenido.</p>
-                    <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Elegir Plan</button>
-                </div>
-                <div class="glass-card reveal reveal-up delay-3">
-                    <h3>Enterprise</h3>
-                    <span class="price-tag">Custom</span>
-                    <p style="color:var(--text-muted)">Soluciones para agencias y productoras.</p>
-                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;">Contactar</button>
-                </div>
-            </div>
-
-        <section class="container">
-            <div class="lead-magnet reveal reveal-up">
-                <h2>📥 Descarga Gratis: "Anatomía de un Reel que Vende"</h2>
-                <p>Aprende la fórmula exacta que usan creadores que facturan +$50K/mes con video vertical</p>
-                <form onsubmit="return submitLeadForm(event)">
-                    <input type="email" placeholder="Tu mejor email" required>
-                    <input type="text" placeholder="Tu nombre" required>
-                    <button type="submit">Envíame el PDF (100% Gratis)</button>
-                </form>
-                <small>🔒 No spam. Solo valor. Cancela cuando quieras.</small>
-            </div>
-        </section>
-
-        <section class="container faq-section">
-            <div class="section-header reveal reveal-up">
-                <h2>Preguntas <span class="text-gradient">Frecuentes</span></h2>
-            </div>
-
-            <div class="faq-item reveal reveal-up delay-1">
-                <div class="faq-question">
-                    ¿Qué pasa si no tengo material grabado?
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    No hay problema. Puedo crear videos con stock footage premium, animaciones y motion graphics. 
-                    También te puedo guiar sobre qué grabar con tu celular para aprovechar al máximo el servicio.
-                </div>
-            </div>
-
-            <div class="faq-item reveal reveal-up delay-2">
-                <div class="faq-question">
-                    ¿Cuánto tiempo toma recibir el primer video?
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    Depende del plan: Starter en 5 días, Growth en 48 horas, Enterprise en 24 horas. 
-                    Para proyectos urgentes podemos hacer entrega exprés con un costo adicional.
-                </div>
-            </div>
-
-            <div class="faq-item reveal reveal-up delay-3">
-                <div class="faq-question">
-                    ¿Qué pasa si no me gusta el resultado?
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    Los planes Growth y Enterprise incluyen correcciones ilimitadas hasta que estés 100% satisfecho. 
-                    En Starter tienes 2 rondas de ajustes. Nunca entregas sin tu aprobación.
-                </div>
-            </div>
-
-            <div class="faq-item reveal reveal-up delay-1">
-                <div class="faq-question">
-                    ¿Trabajan con empresas fuera de Colombia?
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    Sí, 100%. Trabajo con clientes en USA, España, México y Argentina. 
-                    Todo es digital: recibes material por Drive/Dropbox y entregas por la misma vía.
-                </div>
-            </div>
-
-            <div class="faq-item reveal reveal-up delay-2">
-                <div class="faq-question">
-                    ¿Puedo cancelar en cualquier momento?
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </div>
-                <div class="faq-answer">
-                    Los planes son mensuales sin permanencia. Puedes cancelar cuando quieras con 7 días de anticipación. 
-                    Si no estás satisfecho el primer mes, te devuelvo el 100% del dinero.
-                </div>
-            </div>
-        </section>
-
-        <section class="container" style="margin: 80px auto;">
-            <div class="lead-magnet reveal reveal-up" style="background: linear-gradient(135deg, #1a1c29 0%, #0f1016 100%); border: 2px solid rgba(168, 85, 247, 0.5);">
-                <div class="urgency-badge">⏰ Quedan solo 2 spots disponibles este mes</div>
-                <h2 style="font-size: 3rem;">¿Listo para Dominar tu Nicho?</h2>
-                <p style="font-size: 1.3rem;">Agenda tu llamada estratégica de 15 minutos (100% gratis, sin compromiso)</p>
-                <button class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 50px;" onclick="window.open('https://wa.me/573209263077?text=Quiero%20agendar%20mi%20llamada%20gratis%20de%2015%20min','_blank')">
-                    📅 Agendar Ahora (Gratis)
-                </button>
-                <small>🔒 Sin presión de venta. Solo hablamos de tus objetivos.</small>
-            </div>
-        </section>
-    </main>
-
-    <footer style="text-align:center; padding: 60px 0; border-top: 1px solid var(--border-light);">
-        <div class="logo">GIAN <span class="text-gradient">VISUALS</span></div>
-        <p id="copyright" style="color: var(--text-muted); margin-top: 10px;"></p>
-    </footer>
-
-    <script>
-        // Actualización dinámica del año
-        document.getElementById('copyright').innerHTML = `&copy; ${new Date().getFullYear()} Gian Visuals. Todos los derechos reservados.`;
-
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        menuToggle.onclick = () => {
-            navLinks.classList.toggle('active');
-            menuToggle.querySelector('i').classList.toggle('fa-times');
-        }
-        function closeMenu() { navLinks.classList.remove('active'); }
-
-        const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, observerOptions);
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-
-            const navEl = document.querySelector('nav');
-            if (scrolled > 60) { navEl.classList.add('scrolled'); }
-            else { navEl.classList.remove('scrolled'); }
-
-            const parallaxElements = document.querySelectorAll('[data-speed]');
-            parallaxElements.forEach(el => {
-                const speed = el.getAttribute('data-speed');
-                el.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // FAQ toggle (mantenido)
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('active'); });
-                item.classList.toggle('active');
-            });
-        });
-
-        // Tilt card
-        const card = document.getElementById('tiltCard');
-        const wrapper = document.querySelector('.id-card-wrapper');
-        wrapper.onmousemove = (e) => {
-            const rect = wrapper.getBoundingClientRect();
-            const x = (e.clientX - rect.left) / rect.width - 0.5;
-            const y = (e.clientY - rect.top) / rect.height - 0.5;
-            card.style.transform = `perspective(1000px) rotateY(${x * 30}deg) rotateX(${-y * 30}deg) scale(1.05)`;
-            card.style.animation = 'none';
-        };
-        wrapper.onmouseleave = () => {
-            card.style.transform = 'rotateY(0) rotateX(0)';
-            card.style.animation = 'floatCard 6s ease-in-out infinite';
-        };
-
-        // Contadores
-        let started = false;
-        const statsSection = document.querySelector('.about-card-container');
-        const statsObserver = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting && !started) {
-                document.querySelectorAll('.counter').forEach(counter => {
-                    const target = +counter.dataset.target;
-                    const suffix = counter.dataset.suffix || '+';
-                    let count = 0;
-                    const increment = target / 30;
-                    const update = () => {
-                        if(count < target) {
-                            count += increment;
-                            counter.innerText = Math.ceil(count) + suffix;
-                            setTimeout(update, 40);
-                        } else { counter.innerText = target + suffix; }
-                    };
-                    update();
-                });
-                started = true;
-            }
-        }, {threshold: 0.5});
-        statsObserver.observe(statsSection);
-
-        // 3D Particles
-        window.addEventListener('load', () => {
-            if (typeof THREE === 'undefined') return;
-            const canvas = document.getElementById('particles-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            const geometry = new THREE.BufferGeometry();
-            const vertices = [];
-            const colors = [];
-            for(let i = 0; i < 2000; i++) {
-                vertices.push(Math.random() * 2000 - 1000, Math.random() * 2000 - 1000, Math.random() * 2000 - 1000);
-                const color = new THREE.Color();
-                color.setHSL(0.6 + Math.random() * 0.2, 0.8, 0.6);
-                colors.push(color.r, color.g, color.b);
-            }
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-            const material = new THREE.PointsMaterial({ size: 2, vertexColors: true, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending });
-            const particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-            camera.position.z = 500;
-            let mouseX = 0, mouseY = 0;
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-                mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-            });
-            function animate() {
-                requestAnimationFrame(animate);
-                particles.rotation.x += 0.0003;
-                particles.rotation.y += 0.0005;
-                camera.position.x += (mouseX * 50 - camera.position.x) * 0.05;
-                camera.position.y += (mouseY * 50 - camera.position.y) * 0.05;
-                camera.lookAt(scene.position);
-                renderer.render(scene, camera);
-            }
-            animate();
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        });
-
-
-        // ============================================================
-        // PORTFOLIO GV — DATOS, CARRUSEL, MODAL, LIGHTBOX
-        // ============================================================
-        const GV_DATA = {
-            reels: {
-                title: 'Reels & Video',
-                subtitle: 'Producción vertical premium · diseñado para retención',
-                items: [
-                    { type: 'video', src: 'https://img.youtube.com/vi/sS6-BWuXkik/hqdefault.jpg', link: 'https://youtube.com/shorts/sS6-BWuXkik', title: 'Julian Bodybuilder', meta: '+250K views · Recap Classic Physique' },
-                ]
-            },
-            bodas: {
-                title: 'Bodas & Eventos',
-                subtitle: '7 piezas · cobertura cinematográfica completa',
-                items: [
-                    { type: 'image', src: 'fotos/Boda.jpg',  title: 'Cristopher & Patricia', meta: 'Boda · 2024' },
-                    { type: 'image', src: 'fotos/Boda1.jpg', title: 'Ceremonia',  meta: '2024' },
-                    { type: 'image', src: 'fotos/Boda2.jpg', title: 'Detalles',   meta: '2024' },
-                    { type: 'image', src: 'fotos/Boda3.jpg', title: 'Recepción',  meta: '2024' },
-                    { type: 'image', src: 'fotos/Boda4.jpg', title: 'Primera danza', meta: '2024' },
-                    { type: 'image', src: 'fotos/Boda5.jpg', title: 'Retrato pareja', meta: '2024' },
-                    { type: 'image', src: 'fotos/Boda6.jpg', title: 'Celebración', meta: '2024' },
-                ]
-            },
-            retratos: {
-                title: 'Retratos',
-                subtitle: '11 piezas · editorial y personal branding',
-                items: [
-                    { type: 'image', src: 'fotos/Isa1.jpg', title: 'Isa — Editorial', meta: 'Estudio · 2024' },
-                    { type: 'image', src: 'fotos/Isa2.jpg', title: 'Isa — Retrato',   meta: 'Estudio · 2024' },
-                    { type: 'image', src: 'fotos/Isa3.jpg', title: 'Isa — Natural',   meta: 'Exterior · 2024' },
-                    { type: 'image', src: 'fotos/g1.jpeg', title: 'Retrato 01', meta: '2024' },
-                    { type: 'image', src: 'fotos/g2.jpeg', title: 'Retrato 02', meta: '2024' },
-                    { type: 'image', src: 'fotos/g3.jpeg', title: 'Retrato 03', meta: '2024' },
-                    { type: 'image', src: 'fotos/g4.jpeg', title: 'Retrato 04', meta: '2024' },
-                    { type: 'image', src: 'fotos/g5.jpeg', title: 'Retrato 05', meta: '2024' },
-                    { type: 'image', src: 'fotos/g6.jpeg', title: 'Retrato 06', meta: '2024' },
-                    { type: 'image', src: 'fotos/g7.jpeg', title: 'Retrato 07', meta: '2024' },
-                    { type: 'image', src: 'fotos/g8.jpeg', title: 'Retrato 08', meta: '2024' },
-                ]
-            },
-            producto: {
-                title: 'Producto',
-                subtitle: '8 piezas · lujo y branding visual',
-                items: [
-                    { type: 'image', src: 'fotos/r1.jpg', title: 'Producto 01', meta: 'Campaña' },
-                    { type: 'image', src: 'fotos/r2.jpg', title: 'Producto 02', meta: '2024' },
-                    { type: 'image', src: 'fotos/r3.jpg', title: 'Producto 03', meta: '2024' },
-                    { type: 'image', src: 'fotos/r4.jpg', title: 'Producto 04', meta: '2024' },
-                    { type: 'image', src: 'fotos/r5.jpg', title: 'Producto 05', meta: '2024' },
-                    { type: 'image', src: 'fotos/r6.jpg', title: 'Producto 06', meta: '2024' },
-                    { type: 'image', src: 'fotos/r7.jpg', title: 'Producto 07', meta: '2024' },
-                    { type: 'image', src: 'fotos/r8.jpg', title: 'Producto 08', meta: '2024' },
-                ]
-            },
-            lifestyle: {
-                title: 'Lifestyle',
-                subtitle: '9 piezas · contenido orgánico premium',
-                items: [
-                    { type: 'image', src: 'fotos/p1.png', title: 'Lifestyle 01', meta: 'Bogotá' },
-                    { type: 'image', src: 'fotos/p2.png', title: 'Lifestyle 02', meta: 'Campaña' },
-                    { type: 'image', src: 'fotos/p3.png', title: 'Lifestyle 03', meta: '2024' },
-                    { type: 'image', src: 'fotos/p4.png', title: 'Lifestyle 04', meta: '2024' },
-                    { type: 'image', src: 'fotos/p5.png', title: 'Lifestyle 05', meta: '2024' },
-                    { type: 'image', src: 'fotos/p6.jpg', title: 'Lifestyle 06', meta: '2024' },
-                    { type: 'image', src: 'fotos/p7.jpg', title: 'Lifestyle 07', meta: '2024' },
-                    { type: 'image', src: 'fotos/p8.jpg', title: 'Lifestyle 08', meta: '2024' },
-                    { type: 'image', src: 'fotos/p9.jpg', title: 'Lifestyle 09', meta: '2024' },
-                ]
-            }
-        };
-
-        let GV_CURRENT = 'reels';
-
-        function gvRenderPiece(item, i) {
-            const num = String(i + 1).padStart(2, '0');
-            const videoCls = item.type === 'video' ? ' is-video' : '';
-            return `
-                <div class="gv-piece${videoCls}" onclick="gvOpenLightbox(${i})">
-                    <div class="gv-piece-img" style="background-image: url('${item.src}');"></div>
-                    <div class="gv-piece-num">${num}</div>
-                    ${item.type === 'video' ? '<div class="gv-piece-play"><i class="fas fa-play"></i></div>' : ''}
-                    <div class="gv-piece-overlay">
-                        <div class="gv-piece-label">${item.title}</div>
-                        <div class="gv-piece-sub">${item.meta}</div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function gvActivate(id, clickedCard) {
-            GV_CURRENT = id;
-            const d = GV_DATA[id];
-            const exp = document.getElementById('gvExpanded');
-
-            if (clickedCard) {
-                clickedCard.classList.remove('is-pulsing');
-                void clickedCard.offsetWidth;
-                clickedCard.classList.add('is-pulsing');
-                setTimeout(() => clickedCard.classList.remove('is-pulsing'), 600);
-            }
-
-            exp.style.opacity = '0.35';
-            setTimeout(() => {
-                document.getElementById('gvExpTitle').textContent = d.title;
-                document.getElementById('gvExpSub').textContent = d.subtitle;
-                const top3 = d.items.slice(0, 3);
-                document.getElementById('gvPieces').innerHTML = top3.map((it, i) => gvRenderPiece(it, i)).join('');
-                exp.style.opacity = '1';
-                if (window.innerWidth < 768 && clickedCard) {
-                    exp.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 180);
-        }
-
-        function gvOpenModal() {
-            const d = GV_DATA[GV_CURRENT];
-            document.getElementById('gvModalTitle').textContent = d.title;
-            document.getElementById('gvModalSub').textContent = d.subtitle;
-            document.getElementById('gvModalGrid').innerHTML = d.items.map((it, i) => gvRenderPiece(it, i)).join('');
-            document.getElementById('gvModal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function gvCloseModal() {
-            document.getElementById('gvModal').classList.remove('open');
-            if (!document.getElementById('gvLightbox').classList.contains('open')) {
-                document.body.style.overflow = '';
-            }
-        }
-
-        // --- Lightbox ---
-        let gvLbIndex = 0;
-        let gvLbZoomed = false;
-
-        function gvOpenLightbox(index) {
-            gvLbIndex = index;
-            gvLbZoomed = false;
-            gvLbRender();
-            const lb = document.getElementById('gvLightbox');
-            lb.classList.add('open');
-            lb.classList.remove('is-zoomed');
-            document.body.style.overflow = 'hidden';
-        }
-        function gvCloseLightbox() {
-            const lb = document.getElementById('gvLightbox');
-            lb.classList.remove('open');
-            lb.classList.remove('is-zoomed');
-            gvLbZoomed = false;
-            if (!document.getElementById('gvModal').classList.contains('open')) {
-                document.body.style.overflow = '';
-            }
-        }
-        function gvLbRender() {
-            const items = GV_DATA[GV_CURRENT].items;
-            const item = items[gvLbIndex];
-            const total = items.length;
-            const img = document.getElementById('gvLbImg');
-            img.style.backgroundImage = `url('${item.src}')`;
-            img.classList.remove('zoomed');
-            img.style.transformOrigin = 'center';
-            document.getElementById('gvLightbox').classList.remove('is-zoomed');
-            gvLbZoomed = false;
-            document.getElementById('gvLbCounter').textContent =
-                `${String(gvLbIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
-            document.getElementById('gvLbTitle').textContent = item.title;
-            document.getElementById('gvLbMeta').textContent = item.meta;
-        }
-        function gvLightboxNav(dir) {
-            const items = GV_DATA[GV_CURRENT].items;
-            gvLbIndex = (gvLbIndex + dir + items.length) % items.length;
-            gvLbRender();
-        }
-        function gvLightboxToggleZoom() {
-            gvLbZoomed = !gvLbZoomed;
-            const img = document.getElementById('gvLbImg');
-            const lb = document.getElementById('gvLightbox');
-            img.classList.toggle('zoomed', gvLbZoomed);
-            lb.classList.toggle('is-zoomed', gvLbZoomed);
-            if (!gvLbZoomed) img.style.transformOrigin = 'center';
-        }
-        document.getElementById('gvLbImg').addEventListener('click', gvLightboxToggleZoom);
-        document.getElementById('gvLbImg').addEventListener('mousemove', (e) => {
-            if (!gvLbZoomed) return;
-            const r = e.currentTarget.getBoundingClientRect();
-            const x = ((e.clientX - r.left) / r.width) * 100;
-            const y = ((e.clientY - r.top) / r.height) * 100;
-            e.currentTarget.style.transformOrigin = `${x}% ${y}%`;
-        });
-        document.getElementById('gvLbImg').addEventListener('touchstart', (e) => {
-            if (!gvLbZoomed) return;
-        }, { passive: true });
-        document.getElementById('gvLbImg').addEventListener('touchmove', (e) => {
-            if (!gvLbZoomed) return;
-            const r = e.currentTarget.getBoundingClientRect();
-            const x = ((e.touches[0].clientX - r.left) / r.width) * 100;
-            const y = ((e.touches[0].clientY - r.top) / r.height) * 100;
-            e.currentTarget.style.transformOrigin = `${x}% ${y}%`;
-        }, { passive: true });
-
-        document.addEventListener('keydown', (e) => {
-            if (document.getElementById('gvLightbox').classList.contains('open')) {
-                if (e.key === 'Escape') gvCloseLightbox();
-                if (e.key === 'ArrowLeft') gvLightboxNav(-1);
-                if (e.key === 'ArrowRight') gvLightboxNav(1);
-            } else if (document.getElementById('gvModal').classList.contains('open')) {
-                if (e.key === 'Escape') gvCloseModal();
-            }
-        });
-
-        document.querySelectorAll('.gv-card').forEach(c => {
-            c.addEventListener('click', () => gvActivate(c.dataset.id, c));
-        });
-
-        // --- Carrusel JS-controlled + cursor direccional ---
-        const gvWrap   = document.getElementById('gvStripWrap');
-        const gvStrip  = document.getElementById('gvStrip');
-        const gvCursor = document.getElementById('gvCursor');
-
-        let gvIsOver = false;
-        let gvTargetX = 0, gvTargetY = 0;
-        let gvCurX = 0, gvCurY = 0;
-        let gvRelX = 0;
-        let gvOffset = 0;
-        let gvTotal = 0;
-        const GV_BASE_SPEED = -0.55;
-        const GV_MAX_SPEED  = 7;
-        const GV_DEAD_ZONE  = 0.15;
-
-        let gvIsDragging = false;
-        let gvTouchStartX = 0;
-        let gvTouchOffsetStart = 0;
-
-        function gvMeasure() {
-            gvTotal = gvStrip.getBoundingClientRect().width / 2;
-        }
-        setTimeout(gvMeasure, 120);
-        window.addEventListener('load', gvMeasure);
-        window.addEventListener('resize', gvMeasure);
-
-        document.addEventListener('mousemove', (e) => {
-            gvTargetX = e.clientX;
-            gvTargetY = e.clientY;
-        });
-
-        gvWrap.addEventListener('mouseenter', () => {
-            gvIsOver = true;
-            gvCursor.classList.add('visible');
-        });
-        gvWrap.addEventListener('mouseleave', () => {
-            gvIsOver = false;
-            gvCursor.className = 'gv-cursor';
-        });
-        gvWrap.addEventListener('mousemove', (e) => {
-            const r = gvWrap.getBoundingClientRect();
-            const x = e.clientX - r.left;
-            gvRelX = Math.max(-1, Math.min(1, (x - r.width / 2) / (r.width / 2)));
-            let dir = 'center';
-            if (Math.abs(gvRelX) >= GV_DEAD_ZONE) dir = gvRelX > 0 ? 'right' : 'left';
-            gvCursor.className = 'gv-cursor visible ' + dir;
-        });
-
-        gvWrap.addEventListener('touchstart', (e) => {
-            gvIsDragging = true;
-            gvWrap.classList.add('is-dragging');
-            gvTouchStartX = e.touches[0].clientX;
-            gvTouchOffsetStart = gvOffset;
-        }, { passive: true });
-        gvWrap.addEventListener('touchmove', (e) => {
-            if (!gvIsDragging) return;
-            const dx = e.touches[0].clientX - gvTouchStartX;
-            gvOffset = gvTouchOffsetStart + dx;
-        }, { passive: true });
-        gvWrap.addEventListener('touchend', () => {
-            gvIsDragging = false;
-            gvWrap.classList.remove('is-dragging');
-        });
-
-        function gvTick() {
-            gvCurX += (gvTargetX - gvCurX) * 0.2;
-            gvCurY += (gvTargetY - gvCurY) * 0.2;
-            gvCursor.style.transform = 'translate(' + gvCurX + 'px, ' + gvCurY + 'px)';
-
-            let speed;
-            if (gvIsDragging) {
-                speed = 0;
-            } else if (gvIsOver) {
-                if (Math.abs(gvRelX) < GV_DEAD_ZONE) {
-                    speed = 0;
-                } else {
-                    const sign = Math.sign(gvRelX);
-                    const intensity = (Math.abs(gvRelX) - GV_DEAD_ZONE) / (1 - GV_DEAD_ZONE);
-                    speed = -sign * intensity * GV_MAX_SPEED;
-                }
-            } else {
-                speed = GV_BASE_SPEED;
-            }
-
-            if (!gvIsDragging) gvOffset += speed;
-
-            if (gvTotal > 0) {
-                if (gvOffset <= -gvTotal) gvOffset += gvTotal;
-                if (gvOffset > 0) gvOffset -= gvTotal;
-            }
-            gvStrip.style.transform = 'translateX(' + gvOffset + 'px)';
-
-            requestAnimationFrame(gvTick);
-        }
-        gvTick();
-
-        // Render inicial: Bodas (porque Reels solo tiene 1 pieza real)
-        gvActivate('bodas');
-
-        // Lead form mantenido (stub si no estaba definido)
-        function submitLeadForm(e) {
-            e.preventDefault();
-            alert('¡Gracias! Te enviaré el PDF a tu email en breve.');
-            return false;
-        }
-
-    </script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESO ===================== -->
+<section style="position:relative; z-index:10; border-top:1px solid var(--border); background:linear-gradient(180deg,transparent,rgba(124,58,237,.05));">
+  <div class="wrap" style="padding-top:5.5rem; padding-bottom:5.5rem;">
+    <div class="reveal" style="max-width:40rem; margin-bottom:3rem;">
+      <p class="eyebrow" style="margin-bottom:1rem">Cómo trabajamos</p>
+      <h2 style="margin:0; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:800; letter-spacing:-.02em; line-height:1.15;">Una sesión <span class="gv-grad">dirigida</span>, no improvisada.</h2>
+      <p style="margin:1.4rem 0 0; color:var(--muted); font-size:1.15rem; line-height:1.65;">No necesitas saber posar. Diseñamos la sesión antes de encender la cámara y yo te dirijo en el camino.</p>
+    </div>
+    <div class="procs">
+      <div class="proc reveal"><div class="gv-step" style="font-size:2.4rem; margin-bottom:1.2rem;">01</div><h3>Conversamos</h3><p>Definimos concepto, referencias y para qué vas a usar las fotos. La sesión se diseña antes de disparar.</p></div>
+      <div class="proc reveal"><div class="gv-step" style="font-size:2.4rem; margin-bottom:1.2rem;">02</div><h3>Producimos</h3><p>El día del shooting te dirijo en luz, pose y ritmo. Tú solo apareces; del resto me encargo yo.</p></div>
+      <div class="proc reveal"><div class="gv-step" style="font-size:2.4rem; margin-bottom:1.2rem;">03</div><h3>Entregamos</h3><p>Selección y retoque con acabado editorial. Recibes una galería lista para redes, marca o impreso.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta" id="cta">
+  <div class="smoke" data-par="0.2" style="opacity:.5"></div>
+  <div id="ctaTrail"></div>
+  <div class="wrap cta-inner" style="padding-top:6rem; padding-bottom:6rem;">
+    <p class="reveal eyebrow" style="margin-bottom:1.6rem; display:inline-flex; align-items:center; gap:.6rem;"><span class="dot" style="width:6px;height:6px"></span>Mueve el cursor</p>
+    <h2 class="reveal">¿Listo para tu <span class="gv-shine">próxima sesión</span>?</h2>
+    <p class="reveal lead">Cuéntame qué necesitas y te paso una cotización a tu medida. Sin compromiso.</p>
+    <div class="reveal" style="margin-top:2.6rem; display:flex; justify-content:center; pointer-events:auto;">
+      <a href="https://wa.me/573209263077?text=Hola%20Gian%2C%20quiero%20cotizar%20un%20shooting" target="_blank" rel="noopener" data-glass class="glass primary lg float">
+        <span class="sheen"></span><span class="swipe"></span><span>Cotiza tu shooting</span><span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <a href="/" class="brand"><span class="dot"></span>gian<span class="gv-grad">visuals</span></a>
+    <div class="foot-links">
+      <a href="/foto">Foto</a><a href="/video">Video</a>
+      <a href="https://wa.me/573209263077" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p style="margin:0; color:var(--muted); font-size:.78rem;">© <span id="yr"></span> Gian Paol Muñoz · Bogotá</p>
+  </div>
+</footer>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div id="lb" aria-hidden="true" role="dialog" aria-label="Visor de imagen">
+  <div class="bg" data-close></div>
+  <span class="count" id="lbCount"></span>
+  <button class="lb-btn close" data-close aria-label="Cerrar">×</button>
+  <button class="lb-btn prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <button class="lb-btn next" id="lbNext" aria-label="Siguiente">›</button>
+  <div class="stage"><img id="lbImg" alt="" /></div>
+  <div class="lb-cap"><h4 id="lbTitle"></h4><p id="lbMeta"></p></div>
+</div>
+
+<script>
+/* =========================================================
+   DATA — edita aquí. Series en orden de aparición.
+   Rutas relativas como en tu server (fotos/archivo.jpg).
+   ⚠️ FITNESS son placeholders: sube fit1..fit5 o cambia los nombres.
+   ⚠️ Sube originales ~1600px+ (el visor hace zoom 2.6x).
+   ========================================================= */
+const SERIES = [
+  { cat:'retrato', num:'01', label:'Retrato', tint:'168,85,247',
+    desc:'Editorial, natural y de estudio. Para que te veas como lo que ya eres.',
+    photos:[
+      { src:'fotos/Isa1.jpg', title:'Isa — Editorial', meta:'Estudio · 2024' },
+      { src:'fotos/Isa2.jpg', title:'Isa — Retrato',   meta:'Estudio · 2024' },
+      { src:'fotos/Isa3.jpg', title:'Isa — Natural',   meta:'Exterior · 2024' },
+      { src:'fotos/g1.jpeg',  title:'Retrato 01',      meta:'2024' },
+      { src:'fotos/g2.jpeg',  title:'Retrato 02',      meta:'2024' },
+      { src:'fotos/g3.jpeg',  title:'Retrato 03',      meta:'2024' },
+      { src:'fotos/g4.jpeg',  title:'Retrato 04',      meta:'2024' },
+      { src:'fotos/g5.jpeg',  title:'Retrato 05',      meta:'2024' },
+    ] },
+  { cat:'eventos', num:'02', label:'Eventos', tint:'99,102,241',
+    desc:'Bodas y celebraciones contadas como una historia, no como un álbum.',
+    photos:[
+      { src:'fotos/Boda.jpg',  title:'Cristopher & Patricia', meta:'Boda · 2024' },
+      { src:'fotos/Boda1.jpg', title:'Ceremonia',            meta:'Evento · 2024' },
+      { src:'fotos/Boda2.jpg', title:'Detalles',             meta:'Evento · 2024' },
+      { src:'fotos/Boda3.jpg', title:'Recepción',            meta:'Evento · 2024' },
+      { src:'fotos/Boda4.jpg', title:'Primera danza',        meta:'Evento · 2024' },
+      { src:'fotos/Boda5.jpg', title:'Retrato pareja',       meta:'Evento · 2024' },
+    ] },
+  { cat:'fitness', num:'03', label:'Fitness', tint:'236,72,153',
+    desc:'Fuerza, definición y movimiento bajo luz dirigida.',
+    photos:[
+      { src:'fotos/fit1.jpg', title:'Sesión fitness', meta:'Estudio · 2024' },
+      { src:'fotos/fit2.jpg', title:'Definición',     meta:'Estudio · 2024' },
+      { src:'fotos/fit3.jpg', title:'Movimiento',     meta:'Exterior · 2024' },
+      { src:'fotos/fit4.jpg', title:'Retrato atleta', meta:'Estudio · 2024' },
+      { src:'fotos/fit5.jpg', title:'Fuerza',         meta:'Estudio · 2024' },
+    ] },
+  { cat:'lifestyle', num:'04', label:'Lifestyle', tint:'124,58,237',
+    desc:'Marca personal y cotidiano con un acabado premium.',
+    photos:[
+      { src:'fotos/p1.jpg', title:'Lifestyle 01', meta:'Exterior · 2024' },
+      { src:'fotos/p2.jpg', title:'Lifestyle 02', meta:'2024' },
+      { src:'fotos/p3.jpg', title:'Lifestyle 03', meta:'2024' },
+      { src:'fotos/p4.jpg', title:'Lifestyle 04', meta:'2024' },
+      { src:'fotos/p5.jpg', title:'Lifestyle 05', meta:'2024' },
+    ] },
+];
+
+/* Lista plana (índices globales para el lightbox) */
+const FLAT = [];
+SERIES.forEach(s => s.photos.forEach(p => FLAT.push(Object.assign({ cat:s.cat }, p))));
+
+const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---------- Render de las cards apiladas ---------- */
+(function renderStack(){
+  const stack = document.getElementById('stack');
+  let flatIdx = 0;
+  SERIES.forEach((s, gi) => {
+    const card = document.createElement('article');
+    card.className = 'stack-card reveal';
+    card.style.top = (98 + gi * 16) + 'px';
+    card.style.background =
+      'radial-gradient(80% 60% at 100% 0%, rgba(' + s.tint + ',.16), transparent 60%),' +
+      'linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0)), var(--surface)';
+
+    const thumbs = s.photos.map(p => {
+      const i = flatIdx++;
+      const file = p.src.split('/').pop();
+      return '<button class="shot" data-i="' + i + '" style="--tint:' + s.tint + '">' +
+        '<span class="ph"><span class="ph-ic">⤢</span><span class="ph-file">' + file + '</span></span>' +
+        '<img src="' + p.src + '" alt="' + p.title + '" loading="lazy" onerror="this.style.display=\'none\'">' +
+        '<span class="zoom">↗</span>' +
+        '<span class="scrim"></span>' +
+        '<div class="cap"><h4>' + p.title + '</h4><p>' + p.meta + '</p></div>' +
+      '</button>';
+    }).join('');
+
+    card.innerHTML =
+      '<div class="stack-dim"></div>' +
+      '<div class="stack-inner">' +
+        '<div>' +
+          '<div class="gv-step" style="font-size:clamp(2rem,4vw,3rem); margin-bottom:1rem;">' + s.num + '</div>' +
+          '<h3 class="gv-name gv-grad stack-label">' + s.label + '</h3>' +
+          '<p class="stack-desc">' + s.desc + '</p>' +
+          '<p class="stack-meta">' + s.photos.length + ' fotos</p>' +
+        '</div>' +
+        '<div class="thumbs">' + thumbs + '</div>' +
+      '</div>';
+    stack.appendChild(card);
+  });
+
+  stack.querySelectorAll('.shot').forEach(btn =>
+    btn.addEventListener('click', () => openLB(parseInt(btn.dataset.i, 10))));
+
+  document.getElementById('totalCount').textContent = FLAT.length + ' piezas · ' + SERIES.length + ' series';
+})();
+
+/* =========================================================
+   LIGHTBOX — zoom 2.6x con pan al cursor, teclado, prev/next
+   ========================================================= */
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lbImg');
+const lbTitle = document.getElementById('lbTitle');
+const lbMeta = document.getElementById('lbMeta');
+const lbCount = document.getElementById('lbCount');
+let lbIndex = 0, zoomed = false;
+const ZOOM = 2.6;
+
+function loadLB(i){
+  const it = FLAT[i]; if(!it) return;
+  lbIndex = i; zoomed = false; lbImg.classList.remove('zoomed'); lbImg.style.transform = 'scale(1)';
+  lbImg.src = it.src; lbImg.alt = it.title;
+  lbTitle.textContent = it.title; lbMeta.textContent = it.meta;
+  lbCount.textContent = (i+1) + ' / ' + FLAT.length;
+}
+function openLB(i){ loadLB(i); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }
+function closeLB(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+function nextLB(){ loadLB((lbIndex+1) % FLAT.length); }
+function prevLB(){ loadLB((lbIndex-1+FLAT.length) % FLAT.length); }
+
+document.querySelectorAll('#lb [data-close]').forEach(el => el.addEventListener('click', closeLB));
+document.getElementById('lbNext').addEventListener('click', nextLB);
+document.getElementById('lbPrev').addEventListener('click', prevLB);
+
+lbImg.addEventListener('click', e => {
+  e.stopPropagation(); zoomed = !zoomed;
+  if(zoomed){ lbImg.classList.add('zoomed'); panImg(e); }
+  else { lbImg.classList.remove('zoomed'); lbImg.style.transform='scale(1)'; }
+});
+function panImg(e){
+  const r = lbImg.getBoundingClientRect();
+  const px = ((e.clientX - r.left) / r.width - .5);
+  const py = ((e.clientY - r.top) / r.height - .5);
+  const tx = -px * r.width * (ZOOM-1);
+  const ty = -py * r.height * (ZOOM-1);
+  lbImg.style.transform = 'scale(' + ZOOM + ') translate(' + (tx/ZOOM) + 'px,' + (ty/ZOOM) + 'px)';
+}
+lbImg.addEventListener('mousemove', e => { if(zoomed) panImg(e); });
+
+document.addEventListener('keydown', e => {
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') closeLB();
+  else if(e.key==='ArrowRight') nextLB();
+  else if(e.key==='ArrowLeft') prevLB();
+});
+let tx0=0;
+lb.addEventListener('touchstart', e => tx0 = e.touches[0].clientX, {passive:true});
+lb.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx0;
+  if(Math.abs(dx) > 50){ dx<0 ? nextLB() : prevLB(); }
+}, {passive:true});
+
+/* =========================================================
+   ENTRADA (reveal) + stacking + nav
+   ========================================================= */
+function checkReveals(){
+  const trigger = innerHeight * 0.92; let shown = 0;
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < trigger && top > -el.offsetHeight){
+      if(reduce){ el.classList.add('in'); return; }
+      el.style.transitionDelay = ((shown % 6) * 0.06) + 's';
+      el.classList.add('in'); shown++;
+    } else if(top <= -el.offsetHeight){ el.classList.add('in'); }
+  });
+}
+
+const stackCards = Array.prototype.slice.call(document.querySelectorAll('.stack-card'));
+let stTick = false;
+function onStack(){
+  if(reduce || stTick) return; stTick = true;
+  requestAnimationFrame(() => {
+    stTick = false;
+    stackCards.forEach((card, i) => {
+      const next = stackCards[i+1];
+      const dim = card.querySelector('.stack-dim');
+      if(!next){ card.style.transform = 'none'; if(dim) dim.style.opacity = 0; return; }
+      const topS = parseFloat(getComputedStyle(card).top) || 98;
+      const range = Math.max(1, innerHeight - topS);
+      let prog = (innerHeight - next.getBoundingClientRect().top) / range;
+      prog = Math.max(0, Math.min(1, prog));
+      card.style.transform = 'scale(' + (1 - prog * 0.05) + ')';
+      if(dim) dim.style.opacity = prog * 0.42;
+    });
+  });
+}
+
+function onNavScroll(){
+  document.getElementById('nav').style.background = scrollY > 40 ? 'rgba(8,9,14,.82)' : 'rgba(10,12,18,.55)';
+}
+
+addEventListener('scroll', () => { checkReveals(); onStack(); onNavScroll(); }, { passive:true });
+addEventListener('resize', () => { checkReveals(); onStack(); });
+checkReveals(); onStack(); onNavScroll();
+
+/* =========================================================
+   PARALLAX (capas con data-par) + reflejo de botones
+   ========================================================= */
+let mx=0, my=0, cx=0, cy=0;
+if(!reduce){
+  addEventListener('mousemove', e => {
+    mx = (e.clientX/innerWidth - .5); my = (e.clientY/innerHeight - .5);
+  });
+  (function par(){
+    cx += (mx-cx)*.06; cy += (my-cy)*.06;
+    document.querySelectorAll('[data-par]').forEach(el => {
+      const f = parseFloat(el.dataset.par) * 26;
+      el.style.transform = 'translate(' + (cx*f) + 'px,' + (cy*f) + 'px)';
+    });
+    requestAnimationFrame(par);
+  })();
+}
+document.querySelectorAll('[data-glass]').forEach(b => {
+  b.addEventListener('mousemove', e => {
+    const r = b.getBoundingClientRect();
+    b.style.setProperty('--mx', (e.clientX-r.left)+'px');
+    b.style.setProperty('--my', (e.clientY-r.top)+'px');
+  });
+});
+
+/* =========================================================
+   PARTÍCULAS globales (violeta/rosa/blanco, drift, aditivo)
+   ========================================================= */
+(function(){
+  const c = document.getElementById('px'); const ctx = c.getContext('2d');
+  let w,h,parts; const COLORS = ['rgba(124,58,237,','rgba(236,72,153,','rgba(255,255,255,'];
+  function init(){
+    const n = Math.min(70, Math.floor(w/22));
+    parts = Array.from({length:n}, () => ({ x:Math.random()*w, y:Math.random()*h,
+      r:Math.random()*1.8+.4, s:Math.random()*.4+.12, a:Math.random()*.5+.15, c:COLORS[(Math.random()*COLORS.length)|0] }));
+  }
+  function resize(){ w=c.width=innerWidth; h=c.height=innerHeight; init(); }
+  function draw(){
+    ctx.clearRect(0,0,w,h); ctx.globalCompositeOperation='lighter';
+    parts.forEach(p => { p.y-=p.s; if(p.y<-5){ p.y=h+5; p.x=Math.random()*w; }
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fillStyle=p.c+p.a+')'; ctx.fill(); });
+    requestAnimationFrame(draw);
+  }
+  if(!reduce){ addEventListener('resize',resize); resize(); draw(); }
+})();
+
+/* =========================================================
+   RASTRO de fotos que sigue al cursor en el CTA
+   ========================================================= */
+(function(){
+  const sec = document.getElementById('cta');
+  const layer = document.getElementById('ctaTrail');
+  if(!sec || !layer || reduce) return;
+  let i=0, lx=0, ly=0, first=true, live=0;
+  const GAP=95, MAX=14;
+  sec.addEventListener('pointermove', e => {
+    const r = layer.getBoundingClientRect();
+    const x = e.clientX - r.left, y = e.clientY - r.top;
+    if(first){ lx=x; ly=y; first=false; return; }
+    if(Math.hypot(x-lx, y-ly) < GAP) return;
+    lx=x; ly=y; if(live>MAX) return;
+    const d = FLAT[i % FLAT.length]; i++;
+    const el = document.createElement('div');
+    el.className = 'trail-img';
+    el.style.left = x+'px'; el.style.top = y+'px';
+    el.style.setProperty('--r', ((Math.random()*16)-8).toFixed(1)+'deg');
+    el.style.animation = 'gvTrail .92s cubic-bezier(.2,.8,.2,1) forwards';
+    el.innerHTML = '<img src="'+d.src+'" alt="" onerror="this.parentNode.remove()">';
+    layer.appendChild(el); live++;
+    el.addEventListener('animationend', () => { el.remove(); live--; });
+  });
+})();
+
+/* =========================================================
+   TARJETA ID — tilt 3D al mover el cursor
+   ========================================================= */
+(function(){
+  const card = document.getElementById('tiltCard');
+  if(!card || reduce) return;
+  const wrap = card.parentElement;
+  wrap.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - .5;
+    const py = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = 'rotateY(' + (px * 10) + 'deg) rotateX(' + (-py * 10) + 'deg)';
+  });
+  wrap.addEventListener('mouseleave', () => { card.style.transform = 'rotateY(0) rotateX(0)'; });
+})();
+
+/* =========================================================
+   CONTADORES — animan al entrar en pantalla (una vez)
+   ========================================================= */
+(function(){
+  let done = false;
+  function run(){
+    if(done) return;
+    const row = document.querySelector('.stats-row');
+    if(!row) return;
+    if(row.getBoundingClientRect().top > innerHeight * 0.9) return;
+    done = true;
+    document.querySelectorAll('.counter').forEach(el => {
+      const target = parseInt(el.dataset.target, 10) || 0;
+      const suffix = el.dataset.suffix || '';
+      if(reduce){ el.textContent = target + suffix; return; }
+      const dur = 1400, t0 = performance.now();
+      (function tick(now){
+        const prog = Math.min(1, (now - t0) / dur);
+        const eased = 1 - Math.pow(1 - prog, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if(prog < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }
+  addEventListener('scroll', run, { passive:true });
+  addEventListener('resize', run);
+  run();
+})();
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
